@@ -13,10 +13,7 @@
                     <a class="nav-link" href="listaclientes.php">Clientes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="listausuarios">Usuários</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="listafornecedores">Fornecedores</a>
+                    <a class="nav-link" href="#">Usuário</a>
                 </li>
             </ul>
         </div>

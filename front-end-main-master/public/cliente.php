@@ -51,7 +51,7 @@ if ($id) {
                                     </div>
                                     <div class="mb-3">
                                         <label for="sobrenome" class="form-label">
-                                            Sobrenome
+                                            Sobre nome
                                             <span class="text-danger"> * </span>
                                         </label>
                                         <input type="text" class="form-control" id="sobrenome" name="sobrenome" placeholder="Digite seu sobre nome!" required value="<? echo isset($cliente['sobre_nome']) ? $cliente['sobre_nome'] : ''; ?>">

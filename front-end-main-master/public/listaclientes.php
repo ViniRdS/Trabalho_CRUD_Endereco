@@ -25,11 +25,10 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="listaclientes.php">
+                        <a class="nav-link" href="cliente.php">
                             <i class="fa-solid fa-user"> </i> Clientes
                         </a>
                     </li>
-
                 </ul>
             </div>
         </div>
@@ -39,6 +38,8 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <form method="post" name="frmcliente" id="frmcliente">
+                    <input type="text" id="id" name="id">
+                    <input type="text" id="acao" name="acao">
                     <div class="modal-header">
                         <h5 class="modal-title" id="staticBackdropLabel">Dados do cliente</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -69,31 +70,31 @@
                         <div class="row">
                             <div class="col-12">
                             <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="pessoafisica">
-                            <label class="form-check-label" for="exampleCheck1">Pessoa Física</label>
+                            <input type="radio" class="form-check-input" name="pessoa" id="pessoaFisica" value="pessoaFisica">
+                            <label class="form-check-label" for="pessoaFisica">Pessoa Física</label>
                              </div>
                             <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="pessoajuridica">
-                            <label class="form-check-label" for="exampleCheck1">Pessoa Jurídica</label>
+                            <input type="radio" class="form-check-input" name="pessoa" id="pessoaJuridica" value="pessoaJuridica">
+                            <label class="form-check-label" for="pessoaJuridica">Pessoa Jurídica</label>
                              </div>
 
                                 <div class="form-group">
                                     <label for="nome" class="form-label">Nome <span class="text-danger"> * </span>
                                     </label>
-                                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite seu nome!" required>
+                                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite seu nome" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="sobrenome" class="form-label">Sobre nome <span class="text-danger"> *
+                                    <label for="sobrenome" class="form-label">Sobrenome <span class="text-danger"> *
                                         </span> </label>
-                                    <input type="text" class="form-control" id="sobrenome" name="sobrenome" placeholder="Digite seu sobre nome!" required>
+                                    <input type="text" class="form-control" id="sobrenome" name="sobrenome" placeholder="Digite seu sobre nome" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="cpf" class="form-label">Cpf</label>
-                                    <input type="text" class="form-control" id="cpf" name="cpf" placeholder="Digite seu CPF!">
+                                    <input type="text" class="form-control" id="cpf" name="cpf" placeholder="Digite seu CPF">
                                 </div>
                                 <div class="form-group">
                                     <label for="cpf" class="form-label">Endereço</label>
-                                    <input type="text" class="form-control" id="cpf" name="cpf" placeholder="Digite seu CPF!">
+                                    <input type="text" class="form-control" id="cpf" name="cpf" placeholder="Digite seu endereço">
                                 </div>
                             </div>
                         </div>
@@ -113,11 +114,12 @@
     </div>
     <div class="container">
         <form id="clientes" name="clientes">
+            <input type="text" name="idcliente" id="idcliente">
             <div class="row">
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#cadastrocliente">
+                            <button id="btncadastro" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#cadastrocliente">
                                 <i class="fa-solid fa-plus"> </i> Cadastrar
                             </button>
                             <button id="btnatualiza" type="button" class="btn btn-primary">
@@ -140,7 +142,7 @@
                                     <tr>
                                         <td>Código</td>
                                         <td>Nome</td>
-                                        <td>Sobre nome</td>
+                                        <td>Sobrenome</td>
                                         <td>Cpf</td>
                                         <td>Ação</td>
                                     </tr>
