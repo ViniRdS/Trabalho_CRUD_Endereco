@@ -5,3 +5,6 @@
 .div-radio label{
     padding-left: 5px;
 }
+#idcliente, #id, #acao{
+    visibility: hidden;
+}
