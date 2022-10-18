@@ -1,3 +1,7 @@
-#btnsalvar {
-    background-color: red;
+.div-radio{
+    display: inline-flex;
+    margin-left: 80px;
+}
+.div-radio label{
+    padding-left: 5px;
 }

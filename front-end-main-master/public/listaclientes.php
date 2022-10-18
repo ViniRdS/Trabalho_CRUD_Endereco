@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/estilo.css">
     <title>Lista de clientes</title>
 </head>
 
@@ -69,11 +70,11 @@
                         </div>
                         <div class="row">
                             <div class="col-12">
-                            <div class="mb-3 form-check">
+                            <div class="mb-3 form-check div-radio" >
                             <input type="radio" class="form-check-input" name="pessoa" id="pessoaFisica" value="pessoaFisica">
                             <label class="form-check-label" for="pessoaFisica">Pessoa Física</label>
                              </div>
-                            <div class="mb-3 form-check">
+                            <div class="mb-3 form-check div-radio">
                             <input type="radio" class="form-check-input" name="pessoa" id="pessoaJuridica" value="pessoaJuridica">
                             <label class="form-check-label" for="pessoaJuridica">Pessoa Jurídica</label>
                              </div>
