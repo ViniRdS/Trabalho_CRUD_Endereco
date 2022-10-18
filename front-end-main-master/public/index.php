@@ -29,16 +29,7 @@
                             <i class="fa-solid fa-user"> </i> Clientes
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="listausuarios.php">
-                            <i class="fa-solid fa-users"> </i> Usuários
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="listafornecedores.php">
-                            <i class="fa-solid fa-user-tie"> </i> Fornecedores
-                        </a>
-                    </li>
+
                 </ul>
             </div>
         </div>

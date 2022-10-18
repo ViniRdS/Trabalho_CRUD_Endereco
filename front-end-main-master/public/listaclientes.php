@@ -29,16 +29,7 @@
                             <i class="fa-solid fa-user"> </i> Clientes
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="listausuarios.php">
-                            <i class="fa-solid fa-users"> </i> Usuários
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="listafornecedores.php">
-                            <i class="fa-solid fa-user-tie"> </i> Fornecedores
-                        </a>
-                    </li>
+
                 </ul>
             </div>
         </div>
@@ -77,6 +68,15 @@
                         </div>
                         <div class="row">
                             <div class="col-12">
+                            <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="pessoafisica">
+                            <label class="form-check-label" for="exampleCheck1">Pessoa Física</label>
+                             </div>
+                            <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="pessoajuridica">
+                            <label class="form-check-label" for="exampleCheck1">Pessoa Jurídica</label>
+                             </div>
+
                                 <div class="form-group">
                                     <label for="nome" class="form-label">Nome <span class="text-danger"> * </span>
                                     </label>
@@ -89,6 +89,10 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="cpf" class="form-label">Cpf</label>
+                                    <input type="text" class="form-control" id="cpf" name="cpf" placeholder="Digite seu CPF!">
+                                </div>
+                                <div class="form-group">
+                                    <label for="cpf" class="form-label">Endereço</label>
                                     <input type="text" class="form-control" id="cpf" name="cpf" placeholder="Digite seu CPF!">
                                 </div>
                             </div>
