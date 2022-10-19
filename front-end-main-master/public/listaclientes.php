@@ -115,11 +115,11 @@
         </div>
     </div>
     <!-- Modal Exibir -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exibirModal" tabindex="-1" aria-labelledby="exibirModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable exibir-dialog">
             <div class="modal-content exibir">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Exibir</h1>
+                    <h1 class="modal-title fs-5" id="exibirModalLabel">Exibir</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -176,7 +176,7 @@
                                 <label for="dataAbertura" class="form-label">Data de Abertura</label>
                                 <input type="date" class="form-control" id="dataAbertura" name="dataAbertura" disabled>
                             </div>
-                            <button type="button" class="btn btn-success mt-2"><i class="bi bi-plus-circle"></i></button>
+                            <button type="button" class="btn btn-success mt-2" data-bs-toggle="modal" data-bs-target="#cadasdroEnderecoModal"><i class="bi bi-plus-circle"></i></button>
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -192,7 +192,7 @@
                                     </tr>
                                 </thead>
                                 <tbody id="dadosEnderecos">
-                                    
+
                                 </tbody>
                             </table>
                         </div>
@@ -205,6 +205,43 @@
         </div>
     </div>
 
+    <!-- Modal cadastrar endereço -->
+
+    <div class="modal fade" id="cadasdroEnderecoModal" tabindex="-1" aria-labelledby="cadasdroEnderecoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="cadasdroEnderecoModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" data-bs-toggle='modal' data-bs-target='#exibirModal'>></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-bs-toggle='modal' data-bs-target='#exibirModal'>Close</button>
+                    <button type="button" class="btn btn-primary">Understood</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <div class="container">
         <form id="clientes" name="clientes">
             <input type="text" name="idcliente" id="idcliente">

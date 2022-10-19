@@ -206,5 +206,8 @@ salvar.addEventListener('click', function () {
 $("#cpf").inputmask({
     mask: '999.999.999-99'
 });
+$(document).ready( function () {
+    $('#tabelaEndereco').DataTable();
+} );
 
 //const cpf = document.querySelector("#cpf");
