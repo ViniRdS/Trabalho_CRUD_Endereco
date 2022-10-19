@@ -209,9 +209,128 @@ $("#cpf").inputmask({
 
 
 //const cpf = document.querySelector("#cpf");
-const exibirPf = $(".pessoaFisica")
-const exibirPj = $(".pessoaJuridico")
+const exibirNome = document.querySelector("#exibirNome")
+const exibirSobrenome = document.querySelector("#exibirSobrenome")
+const exibirCpf = document.querySelector("#exibirCpf")
+const exibirNomeFantasia = document.querySelector("#exibirNomeFantasia")
+const exibirRazaoSocial = document.querySelector("#exibirRazaoSocial")
+const exibirRg = document.querySelector("#exibirRg")
+const exibirIe = document.querySelector("#exibirIe")
+const exibirCnpj = document.querySelector("#exibirCnpj")
+const exibirDataNascimento = document.querySelector("#exibirDataNascimento")
+const exibirDataAbertura = document.querySelector("#exibirDataAbertura")
+const pf = document.getElementById('pessoaFisica');
+const pj = document.getElementById('pessoaJuridica');
+const inputs = document.querySelector('#inputs');
+pf.addEventListener('click', () => {
+    /*  exibirNomeFantasia.classList.add('esconder')
+     exibirRazaoSocial.classList.add('esconder')
+     exibirIe.classList.add('esconder')
+     exibirCnpj.classList.add('esconder')
+     exibirDataAbertura.classList.add('esconder')
+     exibirNome.classList.remove('esconder')
+     exibirSobrenome.classList.remove('esconder')
+     exibirCpf.classList.remove('esconder')
+     exibirRg.classList.remove('esconder')
+     exibirDataNascimento.classList.remove('esconder') */
+    inputs.innerHTML = `<div class="form-group" id="exibirNome">
+    <label for="exibirNome" class="form-label">Nome <span class="text-danger"> * </span>
+    </label>
+    <input type="text" class="form-control" id="exibirNome" name="exibirNome" placeholder="Digite seu nome" required>
+</div>
+<div class="form-group" id="exibirSobrenome">
+    <label for="exibirSobrenome" class="form-label">Sobrenome <span class="text-danger"> *
+        </span> </label>
+    <input type="text" class="form-control" id="exibirSobrenome" name="exibirSobrenome" placeholder="Digite seu sobre nome" required>
+</div>
+<div class="form-group" id="exibirCpf">
+    <label for="exibirCpf" class="form-label">CPF</label>
+    <input type="text" class="form-control" id="exibirCpf" name="exibirCpf" placeholder="Digite seu CPF">
+</div>
 
-if (document.getElementById('pessoaFisica').value == true) {
-    exibirPj.addClass = 'esconder'
-}
+<div class="form-group" id="exibirRg">
+<label for="exibirRg" class="form-label">RG</label>
+<input type="text" class="form-control" id="exibirRg" name="exibirRg">
+</div>
+
+<div class="form-group" id="exibirDataNascimento">
+<label for="exibirDataNascimento" class="form-label">Data de Nascimento</label>
+<input type="date" class="form-control" id="exibirDataNascimento" name="exibirDataNascimento" >
+</div>
+`
+})
+//exibirPj.classList.add('esconder')
+// exibirPf.classList.remove('esconder')
+pj.addEventListener('click', () => {
+    /* exibirNomeFantasia.classList.remove('esconder')
+    exibirRazaoSocial.classList.remove('esconder')
+    exibirIe.classList.remove('esconder')
+    exibirCnpj.classList.remove('esconder')
+    exibirDataAbertura.classList.remove('esconder')
+    exibirNome.classList.add('esconder')
+    exibirSobrenome.classList.add('esconder')
+    exibirCpf.classList.add('esconder')
+    exibirRg.classList.add('esconder')
+    exibirDataNascimento.classList.add('esconder') */
+    inputs.innerHTML = `
+
+<div class="form-group" id="exibirNomeFantasia">
+<label for="exibirNomeFantasia" class="form-label">Nome Fantasia
+</label>
+<input type="text" class="form-control" id="exibirNomeFantasia" name="exibirNomeFantasia" >
+</div>
+<div class="form-group" id="exibirRazaoSocial">
+<label for="exibirRazaoSocial" class="form-label">Razão Social</label>
+<input type="text" class="form-control" id="exibirRazaoSocial" name="exibirRazaoSocial">
+</div>
+<div class="form-group" id="exibirIe">
+<label for="exibirIe" class="form-label">IE</label>
+<input type="text" class="form-control" id="exibirIe" name="exibirIe" >
+</div>
+
+<div class="form-group" id="exibirCnpj">
+<label for="exibirCnpj" class="form-label">CNPJ</label>
+<input type="text" class="form-control" id="exibirCnpj" name="exibirCnpj">
+</div>
+
+<div class="form-group" id="exibirDataAbertura">
+<label for="exibirDataAbertura" class="form-label">Data de Abertura</label>
+<input type="date" class="form-control" id="exibirDataAbertura" name="exibirDataAbertura" >
+</div>`
+})
+//exibirPf.classList.add('esconder')
+// exibirPj.classList.remove('esconder')
+
+// exibirPf.classList.add('esconder')
+//exibirPj.classList.add('esconder')
+
+
+
+const adcEndereco = document.querySelector("#adicionarEndereco");
+const divBtnEndereco = document.querySelector('#divBtnEndereco')
+adcEndereco.addEventListener('click', () => {
+    //const voltarX = document.querySelector("#voltarX").classList.add('esconder');
+    //const voltarBtn = document.querySelector("#voltarBtn").classList.add('esconder');
+    divBtnEndereco.innerHTML = ` <button type="button" id="voltarBtn" class="btn btn-secondary" data-bs-target="#cadastrocliente" data-bs-toggle="modal" >Close</button>
+        <button type="button" class="btn btn-success">Salvar</button>`
+})
+const adcExibirEndereco = document.querySelector('#ExibirCadastroEndereco')
+adcExibirEndereco.addEventListener('click', function () {
+    // const voltarX = document.querySelector("#voltarX").classList.remove('esconder');
+    //const voltarBtn = document.querySelector("#voltarBtn").classList.remove('esconder');
+    divBtnEndereco.innerHTML = ` <button type="button" id="voltarBtn" class="btn btn-secondary" data-bs-target="#exibirModal" data-bs-toggle="modal" >Close</button>
+        <button type="button" class="btn btn-success">Salvar</button>`
+})
+
+const fechar = document.querySelector('#fechar');
+fechar.addEventListener('click', () => {
+
+    inputs.innerHTML = ``
+
+})
+
+/*
+adcEndereco.addEventListener('click', function() {
+    voltarX.innerHTML = `<button type="button" class="btn btn-secondary" data-bs-target="#cadastrocliente" data-bs-toggle="modal" id="voltarBtn">Close</button>`
+    voltarBtn.innerHTML = `<button type="button" class="btn btn-secondary" data-bs-target="#cadastrocliente" data-bs-toggle="modal" id="voltarBtn">Close</button>`
+})*/
