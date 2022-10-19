@@ -56,12 +56,15 @@ function alterar(cliente) {
     const nome = cliente.nome;
     const sobreNome = cliente.sobre_nome;
     const cpf = cliente.cpf;
+    const endereco = cliente.endereco;
 
     $("#acao").val('update');
     $("#id").val(id);
     $("#nome").val(nome);
     $("#sobrenome").val(sobreNome);
     $("#cpf").val(cpf);
+    $("#endereco").val(endereco);
+
     //exibimos o modal
     $("#cadastrocliente").modal('show');
 }
@@ -88,6 +91,7 @@ async function update() {
         $("#nome").val('');
         $("#sobrenome").val('');
         $("#cpf").val('');
+        $("#endereco").val('');
         lista_cliente();
         //ocultamos o modal
         $("#cadastrocliente").modal('hide');
@@ -110,7 +114,7 @@ async function lista_cliente() {
     //QUE TERÁ UMA ESTRUTURA HTML
     const html = await response.text();
     //PRINTAMOS NO CONSOLE O RESULTADO
-    console.log(html);
+    
     document.getElementById('dados').innerHTML = html;
 }
 
@@ -202,5 +206,8 @@ salvar.addEventListener('click', function () {
 $("#cpf").inputmask({
     mask: '999.999.999-99'
 });
+$(document).ready( function () {
+    $('#tabelaEndereco').DataTable();
+} );
 
 //const cpf = document.querySelector("#cpf");

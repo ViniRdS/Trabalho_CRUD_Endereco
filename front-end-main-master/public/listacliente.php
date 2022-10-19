@@ -11,6 +11,9 @@ foreach ($clientes as $key => $value) {
         "<td>" .
         "<td>" .
         "<div class='btn-group' role='group'>" .
+        "<button type='button' onclick='mostrar(" . json_encode($value) . ")' type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#exibirModal'>" .
+        "<i class='bi bi-info-circle-fill'></i> Exibir" .
+        "</button>".
         "<button type='button' onclick='alterar(" . json_encode($value) . ")' type='button' class='btn btn-warning'>" .
         "<i class='fa-solid fa-pen-to-square'> </i> Editar" .
         "</button>" .

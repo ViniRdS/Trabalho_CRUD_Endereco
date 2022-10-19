@@ -8,3 +8,11 @@
 #idcliente, #id, #acao{
     visibility: hidden;
 }
+.exibir-dialog{
+    max-width: none;
+    margin: 10px 10px 10px 10px;
+    height: 100%;
+}
+.exibir{
+    height: 100%;
+}
