@@ -134,47 +134,47 @@
                                 <label class="form-check-label" for="pessoaJuridica">Pessoa Jurídica</label>
                             </div>
 
-                            <div class="form-group">
-                                <label for="nome" class="form-label">Nome
+                            <div class="form-group pessoaFisica">
+                                <label for="exibirNome" class="form-label">Nome
                                 </label>
-                                <input type="text" class="form-control" id="nome" name="nome" disabled>
+                                <input type="text" class="form-control" id="exibirNome" name="exibirNome" disabled>
                             </div>
-                            <div class="form-group">
-                                <label for="nomeFantasia" class="form-label">Nome Fantasia
+                            <div class="form-group pessoaJuridico">
+                                <label for="exibirNomeFantasia" class="form-label">Nome Fantasia
                                 </label>
-                                <input type="text" class="form-control" id="nomeFantasia" name="nomeFantasia" disabled>
+                                <input type="text" class="form-control" id="exibirNomeFantasia" name="exibirNomeFantasia" disabled>
                             </div>
-                            <div class="form-group">
-                                <label for="sobrenome" class="form-label">Sobrenome</label>
-                                <input type="text" class="form-control" id="sobrenome" name="sobrenome" disabled>
+                            <div class="form-group pessoaFisica" >
+                                <label for="exibirSobrenome" class="form-label">Sobrenome</label>
+                                <input type="text" class="form-control" id="exibirSobrenome" name="exibirSobrenome" disabled>
                             </div>
-                            <div class="form-group">
-                                <label for="razaoSocial" class="form-label">Razão Social</label>
-                                <input type="text" class="form-control" id="razaoSocial" name="razaoSocial" disabled>
+                            <div class="form-group pessoaJuridico">
+                                <label for="exibirRazaoSocial" class="form-label">Razão Social</label>
+                                <input type="text" class="form-control" id="exibirRazaoSocial" name="exibirRazaoSocial" disabled>
                             </div>
-                            <div class="form-group">
-                                <label for="rg" class="form-label">RG</label>
-                                <input type="text" class="form-control" id="rg" name="rg" disabled>
+                            <div class="form-group pessoaFisica">
+                                <label for="exibirRg" class="form-label">RG</label>
+                                <input type="text" class="form-control" id="exibirRg" name="exibirRg" disabled>
                             </div>
-                            <div class="form-group">
-                                <label for="ie" class="form-label">IE</label>
-                                <input type="text" class="form-control" id="ie" name="ie" disabled>
+                            <div class="form-group pessoaJuridico">
+                                <label for="exibirIe" class="form-label">IE</label>
+                                <input type="text" class="form-control" id="exibirIe" name="exibirIe" disabled>
                             </div>
-                            <div class="form-group">
-                                <label for="cpf" class="form-label">CPF</label>
-                                <input type="text" class="form-control" id="cpf" name="cpf" disabled>
+                            <div class="form-group pessoaFisica">
+                                <label for="exibirCpf" class="form-label">CPF</label>
+                                <input type="text" class="form-control" id="exibirCpf" name="exibirCpf" disabled>
                             </div>
-                            <div class="form-group">
-                                <label for="cnpj" class="form-label">CNPJ</label>
-                                <input type="text" class="form-control" id="cnpj" name="cnpj" disabled>
+                            <div class="form-group pessoaJuridico">
+                                <label for="exibirCnpj" class="form-label">CNPJ</label>
+                                <input type="text" class="form-control" id="exibirCnpj" name="exibirCnpj" disabled>
                             </div>
-                            <div class="form-group">
-                                <label for="dataNascimento" class="form-label">Data de Nascimento</label>
-                                <input type="date" class="form-control" id="dataNascimento" name="dataNascimento" disabled>
+                            <div class="form-group pessoaFisica">
+                                <label for="exibirDataNascimento" class="form-label">Data de Nascimento</label>
+                                <input type="date" class="form-control" id="exibirDataNascimento" name="exibirDataNascimento" disabled>
                             </div>
-                            <div class="form-group">
-                                <label for="dataAbertura" class="form-label">Data de Abertura</label>
-                                <input type="date" class="form-control" id="dataAbertura" name="dataAbertura" disabled>
+                            <div class="form-group pessoaJuridico">
+                                <label for="exibirDataAbertura" class="form-label">Data de Abertura</label>
+                                <input type="date" class="form-control" id="exibirDataAbertura" name="exibirDataAbertura" disabled>
                             </div>
                             <button type="button" class="btn btn-success mt-2" data-bs-toggle="modal" data-bs-target="#cadasdroEnderecoModal"><i class="bi bi-plus-circle"></i></button>
                             <table class="table">
@@ -211,37 +211,44 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="cadasdroEnderecoModalLabel">Modal title</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h1 class="modal-title fs-5" id="cadasdroEnderecoModalLabel">Cadastrar Endereço</h1>
+                    <button type="button" class="btn-close" data-bs-target="#exibirModal" data-bs-toggle="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    ...
+                    <div class="form-group">
+                            <div>
+                                <label for="cep" class="form-label">CEP</label>
+                                <input type="text" class="form-control" id="cep" name="cep">
+                            </div>
+                            <div class="form-group">
+                                <label for="logradouro" class="form-label">Logradouro</label>
+                                <input type="text" class="form-control" id="logradouro" name="logradouro">
+                            </div>
+                            <div class="form-group">
+                                <label for="bairro" class="form-label">Bairro</label>
+                                <input type="text" class="form-control" id="bairro" name="bairro" >
+                            </div>
+                            <div class="form-group">
+                                <label for="cidade" class="form-label">Cidade</label>
+                                <input type="text" class="form-control" id="cidade" name="cidade" >
+                            </div>
+                            <div class="form-group">
+                                <label for="uf" class="form-label">UF</label>
+                                <input type="text" class="form-control" id="uf" name="uf" >
+                            </div>
+                            <div class="form-group">
+                                <label for="ibge" class="form-label">IBGE</label>
+                                <input type="text" class="form-control" id="ibge" name="ibge" >
+                            </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-bs-target="#exibirModal" data-bs-toggle="modal">Close</button>
+                    <button type="button" class="btn btn-success">Salvar</button>
                 </div>
             </div>
         </div>
     </div>
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" data-bs-toggle='modal' data-bs-target='#exibirModal'>></button>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-bs-toggle='modal' data-bs-target='#exibirModal'>Close</button>
-                    <button type="button" class="btn btn-primary">Understood</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    
     <div class="container">
         <form id="clientes" name="clientes">
             <input type="text" name="idcliente" id="idcliente">

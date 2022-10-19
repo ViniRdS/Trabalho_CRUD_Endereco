@@ -114,7 +114,7 @@ async function lista_cliente() {
     //QUE TERÁ UMA ESTRUTURA HTML
     const html = await response.text();
     //PRINTAMOS NO CONSOLE O RESULTADO
-    
+
     document.getElementById('dados').innerHTML = html;
 }
 
@@ -206,8 +206,12 @@ salvar.addEventListener('click', function () {
 $("#cpf").inputmask({
     mask: '999.999.999-99'
 });
-$(document).ready( function () {
-    $('#tabelaEndereco').DataTable();
-} );
+
 
 //const cpf = document.querySelector("#cpf");
+const exibirPf = $(".pessoaFisica")
+const exibirPj = $(".pessoaJuridico")
+
+if (document.getElementById('pessoaFisica').value == true) {
+    exibirPj.addClass = 'esconder'
+}
