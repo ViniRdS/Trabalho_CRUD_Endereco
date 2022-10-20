@@ -206,6 +206,9 @@ salvar.addEventListener('click', function () {
 $("#cpf").inputmask({
     mask: '999.999.999-99'
 });
+$("#cnpj").inputmask({
+    mask: '99.999.999/9999-99'
+});
 
 
 //const cpf = document.querySelector("#cpf");
@@ -324,6 +327,11 @@ adcExibirEndereco.addEventListener('click', function () {
 
 const fechar = document.querySelector('#fechar');
 fechar.addEventListener('click', () => {
+    
+    const limparPf = document.getElementById("pessoaFisica")
+    limparPf.checked = false;
+    const limparPj = document.getElementById("pessoaJuridica")
+    limparPj.checked = false;
 
     inputs.innerHTML = ``
 
@@ -334,3 +342,12 @@ adcEndereco.addEventListener('click', function() {
     voltarX.innerHTML = `<button type="button" class="btn btn-secondary" data-bs-target="#cadastrocliente" data-bs-toggle="modal" id="voltarBtn">Close</button>`
     voltarBtn.innerHTML = `<button type="button" class="btn btn-secondary" data-bs-target="#cadastrocliente" data-bs-toggle="modal" id="voltarBtn">Close</button>`
 })*/
+
+// desmarcar pessoa fisica ou juridica
+function remover (){
+
+        var inputs = $('input[type=radio]');
+      
+        inputs.attr('checked', false);
+        inputs.prop('checked', false);
+      }
