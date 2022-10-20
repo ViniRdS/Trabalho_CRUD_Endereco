@@ -17,3 +17,14 @@
 .exibir{
     height: 100%;
 }
+.div-radio-exibir{
+    display: inline-flex;
+    width: 100%;
+}
+#exibir-div-radio-pf{
+    margin-left: 26%;
+    width: 30%;
+} 
+#exibir-div-radio-pj{
+    width: 30%;
+}

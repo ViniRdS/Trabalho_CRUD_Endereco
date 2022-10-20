@@ -1,3 +1,4 @@
+// TODAS AS QUERYS DE SELEÇÃO DE CAMPO HTML
 const atualiza = document.querySelector("#btnatualiza");
 const salvar = document.querySelector("#btnsalvar");
 
@@ -5,6 +6,44 @@ const alerta = document.querySelector("#alerta");
 const titulo = document.querySelector("#titulo");
 const carregando = document.querySelector("#carregando");
 const cadastro = document.querySelector("#btncadastro");
+
+//LABELS DO CADASTRAR
+const labelNome_Fantasia = document.querySelector("#labelNome_Fantasia")
+const labelSobrenome_Razao = document.querySelector("#labelSobrenome_Razao")
+const labelCpf_Cnpj = document.querySelector("#labelCpf_Cnpj")
+const labelRg_Ie = document.querySelector("#labelRg_Ie")
+const labelDtNascimento_Abertura = document.querySelector("#labelDtNascimento_Abertura")
+
+//LABELS DO EXIBIR
+const exibirLabelNome_Fantasia = document.querySelector("#exibirLabelNome_Fantasia")
+const exibirLabelSobrenome_Razao = document.querySelector("#exibirLabelSobrenome_Razao")
+const exibirLabelCpf_Cnpj = document.querySelector("#exibirLabelCpf_Cnpj")
+const exibirLabelRg_Ie = document.querySelector("#exibirLabelRg_Ie")
+const exibirLabelDtNascimento_Abertura = document.querySelector("#exibirLabelDtNascimento_Abertura")
+
+//RADIOS CADASTRAR
+const pf = document.querySelector('#pessoaFisica');
+const pj = document.querySelector('#pessoaJuridica');
+
+//RADIOS EXIBIR
+const exibirPf = document.querySelector('#exibirPessoaFisica')
+const exibirPj = document.querySelector('#exibirPessoaJuridica')
+
+
+//DIV ONDE FICA OS INPUTS NO CADASTRAR
+const inputs = document.querySelector('#inputs');
+
+//DIV ONDE FICA OS INPUTS NO EXIBIR
+const exibirInputs = document.querySelector('#exibirInputs');
+
+//BOTÕES E DIV DE BOTÃO
+const adcEndereco = document.querySelector("#adicionarEndereco");
+const divBtnEndereco = document.querySelector('#divBtnEndereco')
+const adcExibirEndereco = document.querySelector('#ExibirCadastroEndereco')
+const fechar = document.querySelector('#fechar');
+const voltarX = document.querySelector("#voltarX");
+const fecharX = document.querySelector("#fecharX");
+
 
 
 //CONFIGURAÇÕES DOS PARAMENTRO DE VALIDAÇÃO DO FORMULÁRIO
@@ -204,120 +243,123 @@ salvar.addEventListener('click', function () {
 });
 
 
-
-
-//const cpf = document.querySelector("#cpf");
- const exibirNome = document.querySelector("#labelNome")
-const exibirSobrenome = document.querySelector("#labelSobrenome")
-const exibirCpf = document.querySelector("#labelCpf")
-//const exibirNomeFantasia = document.querySelector("#exibirNomeFantasia")
-//const exibirRazaoSocial = document.querySelector("#exibirRazaoSocial")
-const exibirRg = document.querySelector("#labelRg")
-//const exibirIe = document.querySelector("#exibirIe")
-//const exibirCnpj = document.querySelector("#exibirCnpj")
-const exibirDataNascimento = document.querySelector("#labelDataNascimento")
-//const exibirDataAbertura = document.querySelector("#exibirDataAbertura") 
-const pf = document.getElementById('pessoaFisica');
-const pj = document.getElementById('pessoaJuridica');
-const inputs = document.querySelector('#inputs');
-
+// EVENTO CLICK DO RADIO PF DO CADASTRAR
 pf.addEventListener('click', () => {
-    /*  exibirNomeFantasia.classList.add('esconder')
-     exibirRazaoSocial.classList.add('esconder')
-     exibirIe.classList.add('esconder')
-     exibirCnpj.classList.add('esconder')
-     exibirDataAbertura.classList.add('esconder')
-     exibirNome.classList.remove('esconder')
-     exibirSobrenome.classList.remove('esconder')
-     exibirCpf.classList.remove('esconder')
-     exibirRg.classList.remove('esconder')
-     exibirDataNascimento.classList.remove('esconder') */
-     exibirCpf.innerHTML = 'CPF'
-    exibirNome.innerHTML = 'Nome '
-    exibirSobrenome.innerHTML = 'Sobrenome'
-    exibirRg.innerHTML = 'RG'
-    exibirDataNascimento.innerHTML = 'Data de Nascimento'
-     inputs.classList.remove('esconder')
+    //MUDA OS CAMPOS PARA PESSOA FÍSICA
+    //MUDA AS LABELS
+    labelCpf_Cnpj.innerHTML = 'CPF'
+    labelNome_Fantasia.innerHTML = 'Nome '
+    labelSobrenome_Razao.innerHTML = 'Sobrenome'
+    labelRg_Ie.innerHTML = 'RG'
+    labelDtNascimento_Abertura.innerHTML = 'Data de Nascimento'
+    inputs.classList.remove('esconder')
     adcEndereco.classList.remove('esconder')
+    //EXIBI AS MÁSCARAS
     $("#cpf").inputmask({
         mask: '999.999.999-99'
     });
-    $("#exibirRg").inputmask({
+    $("#rg_ie").inputmask({
         mask: "99.999.999-9"
     });
+
 })
-//exibirPj.classList.add('esconder')
-// exibirPf.classList.remove('esconder')
+
+// EVENTO CLICK DO RADIO PJ DO CADASTRAR
 pj.addEventListener('click', () => {
-    /* exibirNomeFantasia.classList.remove('esconder')
-    exibirRazaoSocial.classList.remove('esconder')
-    exibirIe.classList.remove('esconder')
-    exibirCnpj.classList.remove('esconder')
-    exibirDataAbertura.classList.remove('esconder')
-    exibirNome.classList.add('esconder')
-    exibirSobrenome.classList.add('esconder')
-    exibirCpf.classList.add('esconder')
-    exibirRg.classList.add('esconder')
-    exibirDataNascimento.classList.add('esconder') */
-    exibirCpf.innerHTML = 'CNPJ'
-    exibirNome.innerHTML = 'Nome Fantasia'
-    exibirSobrenome.innerHTML = 'Razão social'
-    exibirRg.innerHTML = 'IE'
-    exibirDataNascimento.innerHTML = 'Data de Abertura'
+    //MUDA OS CAMPOS PARA PESSOA JURÍDICA
+    //MUDA AS LABELS
+    labelCpf_Cnpj.innerHTML = 'CNPJ'
+    labelNome_Fantasia.innerHTML = 'Nome Fantasia'
+    labelSobrenome_Razao.innerHTML = 'Razão social'
+    labelRg_Ie.innerHTML = 'IE'
+    labelDtNascimento_Abertura.innerHTML = 'Data de Abertura'
     inputs.classList.remove('esconder')
-adcEndereco.classList.remove('esconder')
-$("#cpf").inputmask({
-    mask: "99.999.999/9999-99"
-});
-$("#exibirRg").inputmask({
-    mask: ""
-});
+    adcEndereco.classList.remove('esconder')
+    //EXIBI AS MÁSCARAS
+    $("#cpf_cnpj").inputmask({
+        mask: "99.999.999/9999-99"
+    });
+    $("#rg_ie").inputmask({
+        mask: ""
+    });
+
+
 })
-//exibirPf.classList.add('esconder')
-// exibirPj.classList.remove('esconder')
 
-// exibirPf.classList.add('esconder')
-//exibirPj.classList.add('esconder')
-
-
-
-const adcEndereco = document.querySelector("#adicionarEndereco");
-const divBtnEndereco = document.querySelector('#divBtnEndereco')
+//MUDA A ESTRUTURA DO BOTÃO VOLTAR DO MODAL DE ENDEREÇO PARA VOLTAR PARA O CADASTRO QUANDO CLICAR
 adcEndereco.addEventListener('click', () => {
-    //const voltarX = document.querySelector("#voltarX").classList.add('esconder');
-    //const voltarBtn = document.querySelector("#voltarBtn").classList.add('esconder');
-    divBtnEndereco.innerHTML = ` <button type="button" id="voltarBtn" class="btn btn-secondary" data-bs-target="#cadastrocliente" data-bs-toggle="modal" >Close</button>
-        <button type="button" class="btn btn-success">Salvar</button>`
-})
-const adcExibirEndereco = document.querySelector('#ExibirCadastroEndereco')
-adcExibirEndereco.addEventListener('click', function () {
-    // const voltarX = document.querySelector("#voltarX").classList.remove('esconder');
-    //const voltarBtn = document.querySelector("#voltarBtn").classList.remove('esconder');
-    divBtnEndereco.innerHTML = ` <button type="button" id="voltarBtn" class="btn btn-secondary" data-bs-target="#exibirModal" data-bs-toggle="modal" >Close</button>
+    //ESCONDE O BOTÃO X QUANDO ABRIR O MODAL PELO CASDASTAR
+    document.querySelector("#voltarX").classList.add('esconder');
+
+    divBtnEndereco.innerHTML = ` <button type="button" id="voltarBtn" class="btn btn-secondary" data-bs-target="#cadastrocliente" data-bs-toggle="modal" >Voltar</button>
         <button type="button" class="btn btn-success">Salvar</button>`
 })
 
-const fechar = document.querySelector('#fechar');
+//MUDA A ESTRUTURA DO BOTÃO VOLTAR DO MODAL DE ENDEREÇO PARA VOLTAR PARA O EXIBIR QUANDO CLICAR
+adcExibirEndereco.addEventListener('click', function () {
+    //EXIBI O BOTÃO X QUANDO ABRIR O MODAL PELO EXIBIR
+    document.querySelector("#voltarX").classList.remove('esconder');
+
+    divBtnEndereco.innerHTML = ` <button type="button" id="voltarBtn" class="btn btn-secondary" data-bs-target="#exibirModal" data-bs-toggle="modal" >Voltar</button>
+        <button type="button" class="btn btn-success">Salvar</button>`
+})
+
+// QUANDO CLICAR NO BOTÃO FECHAR PARA FECHAR O FORMULÁRION IRÁ VAI LIMPAR O FORMULÁRIO
 fechar.addEventListener('click', () => {
-    
-    const limparPf = document.getElementById("pessoaFisica")
-    limparPf.checked = false;
-    const limparPj = document.getElementById("pessoaJuridica")
-    limparPj.checked = false;
+
+    pf.checked = false;
+
+    pj.checked = false;
 
     inputs.classList.add('esconder')
     adcEndereco.classList.add('esconder')
 })
 
+// QUANDO CLICAR PARA NO BOTÃO X PRARA FECHAR O FORMULÁRIO IRÁ VAI LIMPAR O FORMULÁRIO
+fecharX.addEventListener('click', () => {
 
+    pf.checked = false;
 
+    pj.checked = false;
 
+    inputs.classList.add('esconder')
+    adcEndereco.classList.add('esconder')
+})
 
-/*
-adcEndereco.addEventListener('click', function() {
-    voltarX.innerHTML = `<button type="button" class="btn btn-secondary" data-bs-target="#cadastrocliente" data-bs-toggle="modal" id="voltarBtn">Close</button>`
-    voltarBtn.innerHTML = `<button type="button" class="btn btn-secondary" data-bs-target="#cadastrocliente" data-bs-toggle="modal" id="voltarBtn">Close</button>`
-})*/
+//ELE IRÁ VERIFICAR SE O RADIO DO EXIBIR É VERDADEIRO PARA EXIBIR OS CAMPOS
+if (exibirPf.checked == true) {
+    exibirInputs.classList.remove('esconder')
 
-// desmarcar pessoa fisica ou juridica
+    exibirLabelCpf_Cnpj.innerHTML = 'CPF'
+    exibirLabelNome_Fantasia.innerHTML = 'Nome '
+    exibirLabelSobrenome_Razao.innerHTML = 'Sobrenome'
+    exibirLabelRg_Ie.innerHTML = 'RG'
+    exibirLabelDtNascimento_Abertura.innerHTML = 'Data de Nascimento'
+
+    //EXIBI AS MÁSCARAS
+    $("#cpf").inputmask({
+        mask: '999.999.999-99'
+    });
+    $("#rg_ie").inputmask({
+        mask: "99.999.999-9"
+    });
+}else if (exibirPj.checked == true){
+    exibirInputs.classList.remove('esconder')
+
+    exibirLabelCpf_CnpjCpf_Cnpj.innerHTML = 'CNPJ'
+    exibirLabelNome_Fantasia.innerHTML = 'Nome Fantasia'
+    exibirLabelSobrenome_Razao.innerHTML = 'Razão social'
+    exibirLabelRg_Ie.innerHTML = 'IE'
+    exibirLabelDtNascimento_Abertura.innerHTML = 'Data de Abertura'
+    
+    //EXIBI AS MÁSCARAS
+    $("#cpf_cnpj").inputmask({
+        mask: "99.999.999/9999-99"
+    });
+    $("#rg_ie").inputmask({
+        mask: ""
+    });
+}else{
+    exibirInputs.classList.add('esconder')
+}
 

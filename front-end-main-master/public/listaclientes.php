@@ -44,7 +44,7 @@
                     <input type="text" id="acao" name="acao">
                     <div class="modal-header">
                         <h5 class="modal-title" id="staticBackdropLabel">Dados do cliente</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="fecharX"></button>
                     </div>
                     <div class="modal-body">
                         <!-- AQUI TEMOS UMA LINHA -->
@@ -72,38 +72,36 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="mb-3 form-check div-radio">
-                                    <input type="radio" class="form-check-input" name="pessoa" id="pessoaFisica">
+                                    <input type="radio" class="form-check-input" name="pessoa" id="pessoaFisica" value="Pessoa Fìsica">
                                     <label class="form-check-label" for="pessoaFisica">Pessoa Física</label>
                                 </div>
                                 <div class="mb-3 form-check div-radio">
-                                    <input type="radio" class="form-check-input" name="pessoa" id="pessoaJuridica">
+                                    <input type="radio" class="form-check-input" name="pessoa" id="pessoaJuridica" value="Pessoa Jurídica">
                                     <label class="form-check-label" for="pessoaJuridica">Pessoa Jurídica</label>
                                 </div>
                                 <div id="inputs" class="esconder">
                                     <div class="form-group">
-                                        <label for="exibirCpf" class="form-label" id="labelCpf">CPF</label>
-                                        <input type="text" class="form-control" id="cpf" name="exibirCpf" >
+                                        <label for="cpf_cnpj" class="form-label" id="labelCpf_Cnpj"></label>
+                                        <input type="text" class="form-control" id="cpf_cnpj" name="cpf_cnpj" required>
                                     </div>
-                                <div class="form-group">
-                                    <label for=" exibirNome" class="form-label" id="labelNome">Nome <span class="text-danger" > * </span>
-                                    </label>
-                                    <input type="text" class="form-control" id="exibirNome" name="exibirNome"  required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="exibirSobrenome" class="form-label" id="labelSobrenome">Sobrenome <span class="text-danger"> *
-                                        </span> </label>
-                                    <input type="text" class="form-control" id="exibirSobrenome" name="exibirSobrenome"  required>
-                                </div>
+                                    <div class="form-group">
+                                        <label for="nome_fantasia" class="form-label" id="labelNome_Fantasia"></label>
+                                        <input type="text" class="form-control" id="nome_fantasia" name="nome_fantasia" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="sobrenome_razao" class="form-label" id="labelSobrenome_Razao"></label>
+                                        <input type="text" class="form-control" id="sobrenome_razao" name="sobrenome_razao">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="exibirRg" class="form-label" id="labelRg">RG</label>
-                                    <input type="text" class="form-control" id="exibirRg" name="exibirRg">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="rg_ie" class="form-label" id="labelRg_Ie"></label>
+                                        <input type="text" class="form-control" id="rg_ie" name="rg_ie">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="exibirDataNascimento" class="form-label" id="labelDataNascimento">Data de Nascimento</label>
-                                    <input type="date" class="form-control" id="exibirDataNascimento" name="exibirDataNascimento">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="DtNascimento_Abertura" class="form-label" id="labelDtNascimento_Abertura">Data de Nascimento</label>
+                                        <input type="date" class="form-control" id="DtNascimento_Abertura" name="DtNascimento_Abertura">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -131,85 +129,69 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-12">
-                            <div class="mb-3 form-check div-radio">
-                                <input type="radio" class="form-check-input" name="pessoa" id="pessoaFisica" disabled>
+                        <div class="col-12 div-radio-exibir">
+                            <div class="mb-3 form-check div-radio" id="exibir-div-radio-pf">
+                                <input type="radio" class="form-check-input" name="pessoa" id="exibirPessoaFisica" value="Pessoa Fìsica" disabled>
                                 <label class="form-check-label" for="pessoaFisica">Pessoa Física</label>
                             </div>
-                            <div class="mb-3 form-check div-radio">
-                                <input type="radio" class="form-check-input" name="pessoa" id="pessoaJuridica" disabled>
+                            <div class="mb-3 form-check div-radio" id="exibir-div-radio-pj">
+                                <input type="radio" class="form-check-input" name="pessoa" id="exibirPessoaJuridica" value="Pessoa Jurídica" disabled>
                                 <label class="form-check-label" for="pessoaJuridica">Pessoa Jurídica</label>
                             </div>
 
-                            <div class="form-group pessoaFisica">
-                                <label for="exibirNome" class="form-label">Nome
-                                </label>
-                                <input type="text" class="form-control" id="exibirNome" name="exibirNome" disabled>
-                            </div>
-                            <div class="form-group pessoaJuridico">
-                                <label for="exibirNomeFantasia" class="form-label">Nome Fantasia
-                                </label>
-                                <input type="text" class="form-control" id="exibirNomeFantasia" name="exibirNomeFantasia" disabled>
-                            </div>
-                            <div class="form-group pessoaFisica">
-                                <label for="exibirSobrenome" class="form-label">Sobrenome</label>
-                                <input type="text" class="form-control" id="exibirSobrenome" name="exibirSobrenome" disabled>
-                            </div>
-                            <div class="form-group pessoaJuridico">
-                                <label for="exibirRazaoSocial" class="form-label">Razão Social</label>
-                                <input type="text" class="form-control" id="exibirRazaoSocial" name="exibirRazaoSocial" disabled>
-                            </div>
-                            <div class="form-group pessoaFisica">
-                                <label for="exibirRg" class="form-label">RG</label>
-                                <input type="text" class="form-control" id="exibirRg" name="exibirRg" disabled>
-                            </div>
-                            <div class="form-group pessoaJuridico">
-                                <label for="exibirIe" class="form-label">IE</label>
-                                <input type="text" class="form-control" id="exibirIe" name="exibirIe" disabled>
-                            </div>
-                            <div class="form-group pessoaFisica">
-                                <label for="exibirCpf" class="form-label">CPF</label>
-                                <input type="text" class="form-control" id="exibirCpf" name="exibirCpf" disabled>
-                            </div>
-                            <div class="form-group pessoaJuridico">
-                                <label for="exibirCnpj" class="form-label">CNPJ</label>
-                                <input type="text" class="form-control" id="exibirCnpj" name="exibirCnpj" disabled>
-                            </div>
-                            <div class="form-group pessoaFisica">
-                                <label for="exibirDataNascimento" class="form-label">Data de Nascimento</label>
-                                <input type="date" class="form-control" id="exibirDataNascimento" name="exibirDataNascimento" disabled>
-                            </div>
-                            <div class="form-group pessoaJuridico">
-                                <label for="exibirDataAbertura" class="form-label">Data de Abertura</label>
-                                <input type="date" class="form-control" id="exibirDataAbertura" name="exibirDataAbertura" disabled>
-                            </div>
-                            <button type="button" id="ExibirCadastroEndereco" class="btn btn-success mt-2" data-bs-toggle="modal" data-bs-target="#cadasdroEnderecoModal"><i class="bi bi-plus-circle"></i>Cadastrar Endereço</button>
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Código</th>
-                                        <th scope="col">Titulo</th>
-                                        <th scope="col">CEP</th>
-                                        <th scope="col">Logradouro</th>
-                                        <th scope="col">Bairro</th>
-                                        <th scope="col">Cidade</th>
-                                        <th scope="col">UF</th>
-                                        <th scope="col">IBGE</th>
-                                        <th scope="col"></th>
-                                    </tr>
-                                </thead>
-                                <tbody id="dadosEnderecos">
+                            <div id="exibirInputs" class="esconder">
+                                <div class="form-group">
+                                    <label for="exibirCpf_cnpj" class="form-label" id="exibirLabelCpf_Cnpj"></label>
+                                    <input type="text" class="form-control" id="exibirCpf_cnpj" name="exibirCpf_cnpj" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exibirNome_fantasia" class="form-label" id="exibirLabelNome_Fantasia"></label>
+                                    <input type="text" class="form-control" id="exibirNome_fantasia" name="exibirNome_fantasia" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exibirSobrenome_razao" class="form-label" id="exibirLabelSobrenome_Razao"></label>
+                                    <input type="text" class="form-control" id="exibirSobrenome_razao" name="exibirSobrenome_razao" disabled>
+                                </div>
 
-                                </tbody>
-                            </table>
+                                <div class="form-group">
+                                    <label for="exibirRg_ie" class="form-label" id="exibirLabelRg_Ie"></label>
+                                    <input type="text" class="form-control" id="exibirRg_ie" name="exibirRg_ie" disabled>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exibirDtNascimento_Abertura" class="form-label" id="exibirLabelDtNascimento_Abertura">Data de Nascimento</label>
+                                    <input type="date" class="form-control" id="exibirDtNascimento_Abertura" name="exibirDtNascimento_Abertura" disabled>
+                                </div>
+                            </div>
                         </div>
+                        <button type="button" id="ExibirCadastroEndereco" class="btn btn-success mt-2" data-bs-toggle="modal" data-bs-target="#cadasdroEnderecoModal"><i class="bi bi-plus-circle"></i>Cadastrar Endereço</button>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Código</th>
+                                    <th scope="col">Titulo</th>
+                                    <th scope="col">CEP</th>
+                                    <th scope="col">Logradouro</th>
+                                    <th scope="col">Bairro</th>
+                                    <th scope="col">Cidade</th>
+                                    <th scope="col">UF</th>
+                                    <th scope="col">IBGE</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="dadosEnderecos">
+
+                            </tbody>
+                        </table>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                 </div>
             </div>
+            
         </div>
+    </div>
     </div>
 
     <!-- Modal cadastrar endereço -->
