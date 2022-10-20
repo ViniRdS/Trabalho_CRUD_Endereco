@@ -27,7 +27,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="cliente.php">
+                        <a class="nav-link" href="listaclientes.php">
                             <i class="fa-solid fa-user"> </i> Clientes
                         </a>
                     </li>
@@ -44,7 +44,7 @@
                     <input type="text" id="acao" name="acao">
                     <div class="modal-header">
                         <h5 class="modal-title" id="staticBackdropLabel">Dados do cliente</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="fecharX"></button>
                     </div>
                     <div class="modal-body">
                         <!-- AQUI TEMOS UMA LINHA -->
@@ -72,38 +72,43 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="mb-3 form-check div-radio">
-                                    <input type="radio" class="form-check-input" name="pessoa" id="pessoaFisica" value="pessoaFisica">
+                                    <input type="radio" class="form-check-input" name="pessoa" id="pessoaFisica" value="Pessoa Fìsica">
                                     <label class="form-check-label" for="pessoaFisica">Pessoa Física</label>
                                 </div>
                                 <div class="mb-3 form-check div-radio">
-                                    <input type="radio" class="form-check-input" name="pessoa" id="pessoaJuridica" value="pessoaJuridica">
+                                    <input type="radio" class="form-check-input" name="pessoa" id="pessoaJuridica" value="Pessoa Jurídica">
                                     <label class="form-check-label" for="pessoaJuridica">Pessoa Jurídica</label>
                                 </div>
+                                <div id="inputs" class="esconder">
+                                    <div class="form-group">
+                                        <label for="cpf_cnpj" class="form-label" id="labelCpf_Cnpj"></label>
+                                        <input type="text" class="form-control" id="cpf_cnpj" name="cpf_cnpj" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="nome_fantasia" class="form-label" id="labelNome_Fantasia"></label>
+                                        <input type="text" class="form-control" id="nome_fantasia" name="nome_fantasia" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="sobrenome_razao" class="form-label" id="labelSobrenome_Razao"></label>
+                                        <input type="text" class="form-control" id="sobrenome_razao" name="sobrenome_razao">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="nome" class="form-label">Nome <span class="text-danger"> * </span>
-                                    </label>
-                                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite seu nome" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="sobrenome" class="form-label">Sobrenome <span class="text-danger"> *
-                                        </span> </label>
-                                    <input type="text" class="form-control" id="sobrenome" name="sobrenome" placeholder="Digite seu sobre nome" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="cpf" class="form-label">Cpf</label>
-                                    <input type="text" class="form-control" id="cpf" name="cpf" placeholder="Digite seu CPF">
-                                </div>
-                                <div class="form-group">
-                                    <label for="cpf" class="form-label">Endereço</label>
-                                    <input type="text" class="form-control" id="endereco" name="endereco" placeholder="Digite seu endereço">
+                                    <div class="form-group">
+                                        <label for="rg_ie" class="form-label" id="labelRg_Ie"></label>
+                                        <input type="text" class="form-control" id="rg_ie" name="rg_ie">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="DtNascimento_Abertura" class="form-label" id="labelDtNascimento_Abertura">Data de Nascimento</label>
+                                        <input type="date" class="form-control" id="DtNascimento_Abertura" name="DtNascimento_Abertura">
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
+                        <button type="button" id="adicionarEndereco" class="btn btn-success mt-2 esconder" data-bs-toggle="modal" data-bs-target="#cadasdroEnderecoModal"><i class="bi bi-plus-circle"></i>Cadastrar Endereço</button>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="fechar">
                             <i class="fa-solid fa-xmark"> </i> Fechar
                         </button>
                         <button id="btnsalvar" type="button" class="btn btn-success">
@@ -124,85 +129,69 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-12">
-                            <div class="mb-3 form-check div-radio">
-                                <input type="radio" class="form-check-input" name="pessoa" id="pessoaFisica" value="pessoaFisica" disabled>
+                        <div class="col-12 div-radio-exibir">
+                            <div class="mb-3 form-check div-radio" id="exibir-div-radio-pf">
+                                <input type="radio" class="form-check-input" name="pessoa" id="exibirPessoaFisica" value="Pessoa Fìsica" disabled>
                                 <label class="form-check-label" for="pessoaFisica">Pessoa Física</label>
                             </div>
-                            <div class="mb-3 form-check div-radio">
-                                <input type="radio" class="form-check-input" name="pessoa" id="pessoaJuridica" value="pessoaJuridica" disabled>
+                            <div class="mb-3 form-check div-radio" id="exibir-div-radio-pj">
+                                <input type="radio" class="form-check-input" name="pessoa" id="exibirPessoaJuridica" value="Pessoa Jurídica" disabled>
                                 <label class="form-check-label" for="pessoaJuridica">Pessoa Jurídica</label>
                             </div>
 
-                            <div class="form-group">
-                                <label for="nome" class="form-label">Nome
-                                </label>
-                                <input type="text" class="form-control" id="nome" name="nome" disabled>
-                            </div>
-                            <div class="form-group">
-                                <label for="nomeFantasia" class="form-label">Nome Fantasia
-                                </label>
-                                <input type="text" class="form-control" id="nomeFantasia" name="nomeFantasia" disabled>
-                            </div>
-                            <div class="form-group">
-                                <label for="sobrenome" class="form-label">Sobrenome</label>
-                                <input type="text" class="form-control" id="sobrenome" name="sobrenome" disabled>
-                            </div>
-                            <div class="form-group">
-                                <label for="razaoSocial" class="form-label">Razão Social</label>
-                                <input type="text" class="form-control" id="razaoSocial" name="razaoSocial" disabled>
-                            </div>
-                            <div class="form-group">
-                                <label for="rg" class="form-label">RG</label>
-                                <input type="text" class="form-control" id="rg" name="rg" disabled>
-                            </div>
-                            <div class="form-group">
-                                <label for="ie" class="form-label">IE</label>
-                                <input type="text" class="form-control" id="ie" name="ie" disabled>
-                            </div>
-                            <div class="form-group">
-                                <label for="cpf" class="form-label">CPF</label>
-                                <input type="text" class="form-control" id="cpf" name="cpf" disabled>
-                            </div>
-                            <div class="form-group">
-                                <label for="cnpj" class="form-label">CNPJ</label>
-                                <input type="text" class="form-control" id="cnpj" name="cnpj" disabled>
-                            </div>
-                            <div class="form-group">
-                                <label for="dataNascimento" class="form-label">Data de Nascimento</label>
-                                <input type="date" class="form-control" id="dataNascimento" name="dataNascimento" disabled>
-                            </div>
-                            <div class="form-group">
-                                <label for="dataAbertura" class="form-label">Data de Abertura</label>
-                                <input type="date" class="form-control" id="dataAbertura" name="dataAbertura" disabled>
-                            </div>
-                            <button type="button" class="btn btn-success mt-2" data-bs-toggle="modal" data-bs-target="#cadasdroEnderecoModal"><i class="bi bi-plus-circle"></i></button>
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Código</th>
-                                        <th scope="col">Titulo</th>
-                                        <th scope="col">CEP</th>
-                                        <th scope="col">Logradouro</th>
-                                        <th scope="col">Bairro</th>
-                                        <th scope="col">Cidade</th>
-                                        <th scope="col">UF</th>
-                                        <th scope="col">IBGE</th>
-                                        <th scope="col"></th>
-                                    </tr>
-                                </thead>
-                                <tbody id="dadosEnderecos">
+                            <div id="exibirInputs" class="esconder">
+                                <div class="form-group">
+                                    <label for="exibirCpf_cnpj" class="form-label" id="exibirLabelCpf_Cnpj"></label>
+                                    <input type="text" class="form-control" id="exibirCpf_cnpj" name="exibirCpf_cnpj" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exibirNome_fantasia" class="form-label" id="exibirLabelNome_Fantasia"></label>
+                                    <input type="text" class="form-control" id="exibirNome_fantasia" name="exibirNome_fantasia" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exibirSobrenome_razao" class="form-label" id="exibirLabelSobrenome_Razao"></label>
+                                    <input type="text" class="form-control" id="exibirSobrenome_razao" name="exibirSobrenome_razao" disabled>
+                                </div>
 
-                                </tbody>
-                            </table>
+                                <div class="form-group">
+                                    <label for="exibirRg_ie" class="form-label" id="exibirLabelRg_Ie"></label>
+                                    <input type="text" class="form-control" id="exibirRg_ie" name="exibirRg_ie" disabled>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exibirDtNascimento_Abertura" class="form-label" id="exibirLabelDtNascimento_Abertura">Data de Nascimento</label>
+                                    <input type="date" class="form-control" id="exibirDtNascimento_Abertura" name="exibirDtNascimento_Abertura" disabled>
+                                </div>
+                            </div>
                         </div>
+                        <button type="button" id="ExibirCadastroEndereco" class="btn btn-success mt-2" data-bs-toggle="modal" data-bs-target="#cadasdroEnderecoModal"><i class="bi bi-plus-circle"></i>Cadastrar Endereço</button>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Código</th>
+                                    <th scope="col">Titulo</th>
+                                    <th scope="col">CEP</th>
+                                    <th scope="col">Logradouro</th>
+                                    <th scope="col">Bairro</th>
+                                    <th scope="col">Cidade</th>
+                                    <th scope="col">UF</th>
+                                    <th scope="col">IBGE</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="dadosEnderecos">
+
+                            </tbody>
+                        </table>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                 </div>
             </div>
+            
         </div>
+    </div>
     </div>
 
     <!-- Modal cadastrar endereço -->
@@ -211,37 +200,42 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="cadasdroEnderecoModalLabel">Modal title</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h1 class="modal-title fs-5" id="cadasdroEnderecoModalLabel">Cadastrar Endereço</h1>
+                    <button type="button" class="btn-close" data-bs-target="#exibirModal" data-bs-toggle="modal" aria-label="Close" id="voltarX"></button>
                 </div>
                 <div class="modal-body">
-                    ...
+                    <div class="form-group">
+                        <div>
+                            <label for="cep" class="form-label">CEP</label>
+                            <input type="text" class="form-control" id="cep" name="cep">
+                        </div>
+                        <div class="form-group">
+                            <label for="logradouro" class="form-label">Logradouro</label>
+                            <input type="text" class="form-control" id="logradouro" name="logradouro">
+                        </div>
+                        <div class="form-group">
+                            <label for="bairro" class="form-label">Bairro</label>
+                            <input type="text" class="form-control" id="bairro" name="bairro">
+                        </div>
+                        <div class="form-group">
+                            <label for="cidade" class="form-label">Cidade</label>
+                            <input type="text" class="form-control" id="cidade" name="cidade">
+                        </div>
+                        <div class="form-group">
+                            <label for="uf" class="form-label">UF</label>
+                            <input type="text" class="form-control" id="uf" name="uf">
+                        </div>
+                        <div class="form-group">
+                            <label for="ibge" class="form-label">IBGE</label>
+                            <input type="text" class="form-control" id="ibge" name="ibge">
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                <div class="modal-footer" id="divBtnEndereco">
                 </div>
             </div>
         </div>
     </div>
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" data-bs-toggle='modal' data-bs-target='#exibirModal'>></button>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-bs-toggle='modal' data-bs-target='#exibirModal'>Close</button>
-                    <button type="button" class="btn btn-primary">Understood</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    
     <div class="container">
         <form id="clientes" name="clientes">
             <input type="text" name="idcliente" id="idcliente">
@@ -270,11 +264,11 @@
                             <table class="table table-striped table-hover">
                                 <thead>
                                     <tr>
-                                        <td>Código</td>
-                                        <td>Nome</td>
-                                        <td>Sobrenome</td>
-                                        <td>Cpf</td>
-                                        <td>Ação</td>
+                                        <th>Código</th>
+                                        <th>Nome</th>
+                                        <th>Sobrenome</th>
+                                        <th>CPF</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody id="dados">
