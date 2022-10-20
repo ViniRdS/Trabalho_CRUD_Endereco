@@ -344,10 +344,4 @@ adcEndereco.addEventListener('click', function() {
 })*/
 
 // desmarcar pessoa fisica ou juridica
-function remover (){
 
-        var inputs = $('input[type=radio]');
-      
-        inputs.attr('checked', false);
-        inputs.prop('checked', false);
-      }
