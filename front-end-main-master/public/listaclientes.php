@@ -79,12 +79,35 @@
                                     <input type="radio" class="form-check-input" name="pessoa" id="pessoaJuridica">
                                     <label class="form-check-label" for="pessoaJuridica">Pessoa Jurídica</label>
                                 </div>
-                                <div id="inputs">
-                                    
+                                <div id="inputs" class="esconder">
+                                    <div class="form-group">
+                                        <label for="exibirCpf" class="form-label" id="labelCpf">CPF</label>
+                                        <input type="text" class="form-control" id="cpf" name="exibirCpf" >
+                                    </div>
+                                <div class="form-group">
+                                    <label for=" exibirNome" class="form-label" id="labelNome">Nome <span class="text-danger" > * </span>
+                                    </label>
+                                    <input type="text" class="form-control" id="exibirNome" name="exibirNome"  required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exibirSobrenome" class="form-label" id="labelSobrenome">Sobrenome <span class="text-danger"> *
+                                        </span> </label>
+                                    <input type="text" class="form-control" id="exibirSobrenome" name="exibirSobrenome"  required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exibirRg" class="form-label" id="labelRg">RG</label>
+                                    <input type="text" class="form-control" id="exibirRg" name="exibirRg">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exibirDataNascimento" class="form-label" id="labelDataNascimento">Data de Nascimento</label>
+                                    <input type="date" class="form-control" id="exibirDataNascimento" name="exibirDataNascimento">
+                                </div>
                                 </div>
                             </div>
                         </div>
-                        <button type="button" id="adicionarEndereco" class="btn btn-success mt-2" data-bs-toggle="modal" data-bs-target="#cadasdroEnderecoModal"><i class="bi bi-plus-circle"></i>Cadastrar Endereço</button>
+                        <button type="button" id="adicionarEndereco" class="btn btn-success mt-2 esconder" data-bs-toggle="modal" data-bs-target="#cadasdroEnderecoModal"><i class="bi bi-plus-circle"></i>Cadastrar Endereço</button>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="fechar">
@@ -259,11 +282,11 @@
                             <table class="table table-striped table-hover">
                                 <thead>
                                     <tr>
-                                        <td>Código</td>
-                                        <td>Nome</td>
-                                        <td>Sobrenome</td>
-                                        <td>CPF</td>
-                                        <td>Ação</td>
+                                        <th>Código</th>
+                                        <th>Nome</th>
+                                        <th>Sobrenome</th>
+                                        <th>CPF</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody id="dados">

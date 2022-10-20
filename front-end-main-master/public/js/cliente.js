@@ -203,25 +203,24 @@ salvar.addEventListener('click', function () {
     }
 });
 
-$("#cpf").inputmask({
-    mask: '999.999.999-99'
-});
+
 
 
 //const cpf = document.querySelector("#cpf");
-const exibirNome = document.querySelector("#exibirNome")
-const exibirSobrenome = document.querySelector("#exibirSobrenome")
-const exibirCpf = document.querySelector("#exibirCpf")
-const exibirNomeFantasia = document.querySelector("#exibirNomeFantasia")
-const exibirRazaoSocial = document.querySelector("#exibirRazaoSocial")
-const exibirRg = document.querySelector("#exibirRg")
-const exibirIe = document.querySelector("#exibirIe")
-const exibirCnpj = document.querySelector("#exibirCnpj")
-const exibirDataNascimento = document.querySelector("#exibirDataNascimento")
-const exibirDataAbertura = document.querySelector("#exibirDataAbertura")
+ const exibirNome = document.querySelector("#labelNome")
+const exibirSobrenome = document.querySelector("#labelSobrenome")
+const exibirCpf = document.querySelector("#labelCpf")
+//const exibirNomeFantasia = document.querySelector("#exibirNomeFantasia")
+//const exibirRazaoSocial = document.querySelector("#exibirRazaoSocial")
+const exibirRg = document.querySelector("#labelRg")
+//const exibirIe = document.querySelector("#exibirIe")
+//const exibirCnpj = document.querySelector("#exibirCnpj")
+const exibirDataNascimento = document.querySelector("#labelDataNascimento")
+//const exibirDataAbertura = document.querySelector("#exibirDataAbertura") 
 const pf = document.getElementById('pessoaFisica');
 const pj = document.getElementById('pessoaJuridica');
 const inputs = document.querySelector('#inputs');
+
 pf.addEventListener('click', () => {
     /*  exibirNomeFantasia.classList.add('esconder')
      exibirRazaoSocial.classList.add('esconder')
@@ -233,31 +232,19 @@ pf.addEventListener('click', () => {
      exibirCpf.classList.remove('esconder')
      exibirRg.classList.remove('esconder')
      exibirDataNascimento.classList.remove('esconder') */
-    inputs.innerHTML = `<div class="form-group" id="exibirNome">
-    <label for="exibirNome" class="form-label">Nome <span class="text-danger"> * </span>
-    </label>
-    <input type="text" class="form-control" id="exibirNome" name="exibirNome" placeholder="Digite seu nome" required>
-</div>
-<div class="form-group" id="exibirSobrenome">
-    <label for="exibirSobrenome" class="form-label">Sobrenome <span class="text-danger"> *
-        </span> </label>
-    <input type="text" class="form-control" id="exibirSobrenome" name="exibirSobrenome" placeholder="Digite seu sobre nome" required>
-</div>
-<div class="form-group" id="exibirCpf">
-    <label for="exibirCpf" class="form-label">CPF</label>
-    <input type="text" class="form-control" id="exibirCpf" name="exibirCpf" placeholder="Digite seu CPF">
-</div>
-
-<div class="form-group" id="exibirRg">
-<label for="exibirRg" class="form-label">RG</label>
-<input type="text" class="form-control" id="exibirRg" name="exibirRg">
-</div>
-
-<div class="form-group" id="exibirDataNascimento">
-<label for="exibirDataNascimento" class="form-label">Data de Nascimento</label>
-<input type="date" class="form-control" id="exibirDataNascimento" name="exibirDataNascimento" >
-</div>
-`
+     exibirCpf.innerHTML = 'CPF'
+    exibirNome.innerHTML = 'Nome '
+    exibirSobrenome.innerHTML = 'Sobrenome'
+    exibirRg.innerHTML = 'RG'
+    exibirDataNascimento.innerHTML = 'Data de Nascimento'
+     inputs.classList.remove('esconder')
+    adcEndereco.classList.remove('esconder')
+    $("#cpf").inputmask({
+        mask: '999.999.999-99'
+    });
+    $("#exibirRg").inputmask({
+        mask: "99.999.999-9"
+    });
 })
 //exibirPj.classList.add('esconder')
 // exibirPf.classList.remove('esconder')
@@ -272,31 +259,19 @@ pj.addEventListener('click', () => {
     exibirCpf.classList.add('esconder')
     exibirRg.classList.add('esconder')
     exibirDataNascimento.classList.add('esconder') */
-    inputs.innerHTML = `
-
-<div class="form-group" id="exibirNomeFantasia">
-<label for="exibirNomeFantasia" class="form-label">Nome Fantasia
-</label>
-<input type="text" class="form-control" id="exibirNomeFantasia" name="exibirNomeFantasia" >
-</div>
-<div class="form-group" id="exibirRazaoSocial">
-<label for="exibirRazaoSocial" class="form-label">Razão Social</label>
-<input type="text" class="form-control" id="exibirRazaoSocial" name="exibirRazaoSocial">
-</div>
-<div class="form-group" id="exibirIe">
-<label for="exibirIe" class="form-label">IE</label>
-<input type="text" class="form-control" id="exibirIe" name="exibirIe" >
-</div>
-
-<div class="form-group" id="exibirCnpj">
-<label for="exibirCnpj" class="form-label">CNPJ</label>
-<input type="text" class="form-control" id="exibirCnpj" name="exibirCnpj">
-</div>
-
-<div class="form-group" id="exibirDataAbertura">
-<label for="exibirDataAbertura" class="form-label">Data de Abertura</label>
-<input type="date" class="form-control" id="exibirDataAbertura" name="exibirDataAbertura" >
-</div>`
+    exibirCpf.innerHTML = 'CNPJ'
+    exibirNome.innerHTML = 'Nome Fantasia'
+    exibirSobrenome.innerHTML = 'Razão social'
+    exibirRg.innerHTML = 'IE'
+    exibirDataNascimento.innerHTML = 'Data de Abertura'
+    inputs.classList.remove('esconder')
+adcEndereco.classList.remove('esconder')
+$("#cpf").inputmask({
+    mask: "99.999.999/9999-99"
+});
+$("#exibirRg").inputmask({
+    mask: ""
+});
 })
 //exibirPf.classList.add('esconder')
 // exibirPj.classList.remove('esconder')
@@ -324,13 +299,25 @@ adcExibirEndereco.addEventListener('click', function () {
 
 const fechar = document.querySelector('#fechar');
 fechar.addEventListener('click', () => {
+    
+    const limparPf = document.getElementById("pessoaFisica")
+    limparPf.checked = false;
+    const limparPj = document.getElementById("pessoaJuridica")
+    limparPj.checked = false;
 
-    inputs.innerHTML = ``
-
+    inputs.classList.add('esconder')
+    adcEndereco.classList.add('esconder')
 })
+
+
+
+
 
 /*
 adcEndereco.addEventListener('click', function() {
     voltarX.innerHTML = `<button type="button" class="btn btn-secondary" data-bs-target="#cadastrocliente" data-bs-toggle="modal" id="voltarBtn">Close</button>`
     voltarBtn.innerHTML = `<button type="button" class="btn btn-secondary" data-bs-target="#cadastrocliente" data-bs-toggle="modal" id="voltarBtn">Close</button>`
 })*/
+
+// desmarcar pessoa fisica ou juridica
+

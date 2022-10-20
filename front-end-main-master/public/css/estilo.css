@@ -7,7 +7,7 @@
 }
 #idcliente, #id, #acao, .esconder{
     visibility: hidden;
-    
+    height: 0px;
 }
 .exibir-dialog{
     max-width: none;
