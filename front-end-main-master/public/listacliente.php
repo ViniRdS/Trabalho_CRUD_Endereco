@@ -5,9 +5,12 @@ $dados = "";
 foreach ($clientes as $key => $value) {
     $dados = $dados . "<tr id='tr" . $value['id'] . "'>" .
         "<td>" . $value['id'] . "</td>" .
-        "<td>" . $value['nome'] . "</td>" .
-        "<td>" . $value['sobre_nome'] . "</td>" .
-        "<td>" . $value['cpf'] . "</td>" .
+        "<td>" . $value['nome_fantasia'] . "</td>" .
+        "<td>" . $value['sobrenome_razao'] . "</td>" .
+        "<td>" . $value['cpf_cnpj'] . "</td>" .
+        "<td>" . $value['rg_ie'] . "</td>" .
+        "<td>" . $value['tipo'] . "</td>" .
+        "<td>" . $value['dtnascimento_abertura'] . "</td>" .
         "<td>" .
         "<td>" .
         "<div class='btn-group' role='group'>" .

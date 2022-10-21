@@ -42,6 +42,7 @@
                 <form method="post" name="frmcliente" id="frmcliente">
                     <input type="text" id="id" name="id">
                     <input type="text" id="acao" name="acao">
+                    <input type="text" id="tipo" name="tipo" class="esconder">
                     <div class="modal-header">
                         <h5 class="modal-title" id="staticBackdropLabel">Dados do cliente</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="fecharX"></button>
@@ -99,8 +100,8 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="DtNascimento_Abertura" class="form-label" id="labelDtNascimento_Abertura">Data de Nascimento</label>
-                                        <input type="date" class="form-control" id="DtNascimento_Abertura" name="DtNascimento_Abertura">
+                                        <label for="dtnascimento_abertura" class="form-label" id="labelDtNascimento_Abertura">Data de Nascimento</label>
+                                        <input type="date" class="form-control" id="dtnascimento_abertura" name="dtnascimento_abertura">
                                     </div>
                                 </div>
                             </div>
@@ -131,11 +132,11 @@
                     <div class="row">
                         <div class="col-12 div-radio-exibir">
                             <div class="mb-3 form-check div-radio" id="exibir-div-radio-pf">
-                                <input type="radio" class="form-check-input" name="pessoa" id="exibirPessoaFisica" value="Pessoa Fìsica" disabled>
+                                <input type="radio" class="form-check-input" name="exibirPessoa" id="exibirPessoaFisica" value="Pessoa Fìsica" disabled>
                                 <label class="form-check-label" for="pessoaFisica">Pessoa Física</label>
                             </div>
                             <div class="mb-3 form-check div-radio" id="exibir-div-radio-pj">
-                                <input type="radio" class="form-check-input" name="pessoa" id="exibirPessoaJuridica" value="Pessoa Jurídica" disabled>
+                                <input type="radio" class="form-check-input" name="exibirPessoa" id="exibirPessoaJuridica" value="Pessoa Jurídica" disabled>
                                 <label class="form-check-label" for="pessoaJuridica">Pessoa Jurídica</label>
                             </div>
 
@@ -265,9 +266,12 @@
                                 <thead>
                                     <tr>
                                         <th>Código</th>
-                                        <th>Nome</th>
-                                        <th>Sobrenome</th>
-                                        <th>CPF</th>
+                                        <th>Nome/Nome Fantasia</th>
+                                        <th>Sobrenome/Razão Social</th>
+                                        <th>CPF/CNPJ</th>
+                                        <th>RG/IE</th>
+                                        <th>Tipo</th>
+                                        <th>Data de Nascimento/Abertura</th>
                                         <th></th>
                                     </tr>
                                 </thead>
