@@ -96,7 +96,7 @@
 
                                     <div class="form-group">
                                         <label for="rg_ie" class="form-label" id="labelRg_Ie"></label>
-                                        <input type="text" class="form-control" id="rg_ie" name="rg_ie">
+                                        <input type="text" class="form-control" id="rg_ie" name="rg_ie" required>
                                     </div>
 
                                     <div class="form-group">
