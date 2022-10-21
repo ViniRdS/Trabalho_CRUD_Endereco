@@ -8,6 +8,7 @@
 #idcliente, #id, #acao, .esconder{
     visibility: hidden;
     height: 0px;
+    display: flex;
 }
 .exibir-dialog{
     max-width: none;
@@ -27,4 +28,10 @@
 } 
 #exibir-div-radio-pj{
     width: 30%;
+}
+table{
+    width: 100%;
+}
+body{
+    width: 100%;
 }

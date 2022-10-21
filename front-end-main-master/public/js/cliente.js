@@ -44,7 +44,8 @@ const fechar = document.querySelector('#fechar');
 const voltarX = document.querySelector("#voltarX");
 const fecharX = document.querySelector("#fecharX");
 
-
+//INPUT TIPO
+const tipo = document.querySelector('#tipo');
 
 //CONFIGURAÇÕES DOS PARAMENTRO DE VALIDAÇÃO DO FORMULÁRIO
 $('#frmcliente').validate({
@@ -92,17 +93,33 @@ async function deleta(id) {
 }
 function alterar(cliente) {
     const id = cliente.id;
-    const nome = cliente.nome;
-    const sobreNome = cliente.sobre_nome;
-    const cpf = cliente.cpf;
-    const endereco = cliente.endereco;
+    const nome_fantasia = cliente.nome_fantasia;
+    const sobrenome_razao = cliente.sobrenome_razao;
+    const cpf_cnpj = cliente.cpf_cnpj;
+    const rg_ie = cliente.rg_ie;
+    const dtnascimento_abertura = cliente.dtnascimento_abertura;
+    const tipo = cliente.tipo;
 
     $("#acao").val('update');
     $("#id").val(id);
-    $("#nome").val(nome);
-    $("#sobrenome").val(sobreNome);
-    $("#cpf").val(cpf);
-    $("#endereco").val(endereco);
+    $("#nome_fantasia").val(nome_fantasia);
+    $("#sobrenome_razao").val(sobrenome_razao);
+    $("#cpf_cnpj").val(cpf_cnpj);
+    $("#rg_ie").val(rg_ie);
+    $("#dtnascimento_abertura").val(dtnascimento_abertura);
+    document.querySelector("#tipo").value = tipo;
+
+    if (document.querySelector("#tipo").value == 'Pessoa Física') {
+        pf.checked = true
+        pf.click()
+    } else if (document.querySelector("#tipo").value == 'Pessoa Jurídica'){
+        pj.checked = true
+        pj.click()
+    }else{
+        pj.checked = false
+        pf.checked = false
+    }
+    adcEndereco.classList.add('esconder')
 
     //exibimos o modal
     $("#cadastrocliente").modal('show');
@@ -127,10 +144,12 @@ async function update() {
     if (data == 'true') {
         $("#acao").val('update');
         $("#id").val('');
-        $("#nome").val('');
-        $("#sobrenome").val('');
-        $("#cpf").val('');
-        $("#endereco").val('');
+        $("#nome_fantasia").val('');
+        $("#sobrenome_razao").val('');
+        $("#cpf_cnpj").val('');
+        $("#rg_ie").val('');
+        $("#dtnascimento_abertura").val('');
+        $("#tipo").val('');
         lista_cliente();
         //ocultamos o modal
         $("#cadastrocliente").modal('hide');
@@ -255,13 +274,14 @@ pf.addEventListener('click', () => {
     inputs.classList.remove('esconder')
     adcEndereco.classList.remove('esconder')
     //EXIBI AS MÁSCARAS
-    $("#cpf").inputmask({
+    $("#cpf_cnpj").inputmask({
         mask: '999.999.999-99'
     });
     $("#rg_ie").inputmask({
         mask: "99.999.999-9"
     });
-
+   
+    tipo.value = 'Pessoa Física'
 })
 
 // EVENTO CLICK DO RADIO PJ DO CADASTRAR
@@ -283,6 +303,7 @@ pj.addEventListener('click', () => {
         mask: ""
     });
 
+    tipo.value = 'Pessoa Jurídica'
 
 })
 
@@ -337,8 +358,8 @@ if (exibirPf.checked == true) {
     exibirLabelDtNascimento_Abertura.innerHTML = 'Data de Nascimento'
 
     //EXIBI AS MÁSCARAS
-    $("#cpf").inputmask({
-        mask: '999.999.999-99'
+    $("#cpf_cnpj").inputmask({
+        mask: "999.999.999-99"
     });
     $("#rg_ie").inputmask({
         mask: "99.999.999-9"
@@ -363,3 +384,6 @@ if (exibirPf.checked == true) {
     exibirInputs.classList.add('esconder')
 }
 
+$("#cep").inputmask({
+    mask: "99999-999"
+});
