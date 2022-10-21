@@ -256,6 +256,15 @@ salvar.addEventListener('click', function () {
             carregando.className = 'mb-0';
             setTimeout(() => {
                 update();
+
+                cpf_cnpj.classList.remove('is-valid')
+                nome_fantasia.classList.remove('is-valid')
+                dtnascimento_abertura.classList.remove('is-valid')
+                rg_ie.classList.remove('is-valid')
+                sobrenome_razao.classList.remove('is-valid')
+
+                carregando.classList.add('d-none');
+                titulo.classList.remove('d-none')
             }, 500);
         } else if (document.getElementById('acao').value == 'insert') {
             titulo.className = 'd-none';
@@ -273,6 +282,8 @@ salvar.addEventListener('click', function () {
                 rg_ie.classList.remove('is-valid')
                 sobrenome_razao.classList.remove('is-valid')
 
+                carregando.classList.add('d-none');
+                titulo.classList.remove('d-none')
             }, 500);
         }
         /*alerta.className = 'alert alert-primary';
@@ -360,6 +371,8 @@ fechar.addEventListener('click', () => {
     rg_ie.classList.remove('is-valid')
     sobrenome_razao.classList.remove('is-valid')
 
+    carregando.classList.add('d-none');
+    titulo.classList.remove('d-none')
 })
 
 // QUANDO CLICAR PARA NO BOTÃO X PRARA FECHAR O FORMULÁRIO IRÁ VAI LIMPAR O FORMULÁRIO
@@ -377,6 +390,9 @@ fecharX.addEventListener('click', () => {
     dtnascimento_abertura.classList.remove('is-valid')
     rg_ie.classList.remove('is-valid')
     sobrenome_razao.classList.remove('is-valid')
+
+    carregando.classList.add('d-none');
+    titulo.classList.remove('d-none')
 
 })
 
