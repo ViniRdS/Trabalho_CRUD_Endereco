@@ -47,8 +47,16 @@ const fecharX = document.querySelector("#fecharX");
 //INPUT TIPO
 const tipo = document.querySelector('#tipo');
 
+//INPUT CADASTRO
+const cpf_cnpj = document.querySelector('#cpf_cnpj');
+const nome_fantasia = document.querySelector('#nome_fantasia');
+const dtnascimento_abertura = document.querySelector('#dtnascimento_abertura');
+const sobrenome_razao = document.querySelector('#sobrenome_razao');
+const rg_ie = document.querySelector('#rg_ie');
+
+
 //CONFIGURAÇÕES DOS PARAMENTRO DE VALIDAÇÃO DO FORMULÁRIO
-$('#frmcliente').validate({
+let validade = $('#frmcliente').validate({
     //adiconamos regras de validação ao formulário
     rules: {
         //bloqueamos uma quantidade minima de caracteres
@@ -73,8 +81,12 @@ $('#frmcliente').validate({
     unhighlight: function (element, errorClass, validClass) {
         $(element).removeClass('is-invalid');
         $(element).addClass('is-valid');
+
     }
+
+
 });
+
 async function deleta(id) {
     document.getElementById('idcliente').value = id;
     const form = document.querySelector('#clientes');
@@ -112,10 +124,10 @@ function alterar(cliente) {
     if (document.querySelector("#tipo").value == 'Pessoa Física') {
         pf.checked = true
         pf.click()
-    } else if (document.querySelector("#tipo").value == 'Pessoa Jurídica'){
+    } else if (document.querySelector("#tipo").value == 'Pessoa Jurídica') {
         pj.checked = true
         pj.click()
-    }else{
+    } else {
         pj.checked = false
         pf.checked = false
     }
@@ -250,6 +262,17 @@ salvar.addEventListener('click', function () {
             carregando.className = 'mb-0';
             setTimeout(() => {
                 inserir();
+                pf.checked = false
+                pj.checked = false
+                inputs.classList.add('esconder')
+                adcEndereco.classList.add('esconder')
+
+                cpf_cnpj.classList.remove('is-valid')
+                nome_fantasia.classList.remove('is-valid')
+                dtnascimento_abertura.classList.remove('is-valid')
+                rg_ie.classList.remove('is-valid')
+                sobrenome_razao.classList.remove('is-valid')
+
             }, 500);
         }
         /*alerta.className = 'alert alert-primary';
@@ -277,10 +300,8 @@ pf.addEventListener('click', () => {
     $("#cpf_cnpj").inputmask({
         mask: '999.999.999-99'
     });
-    $("#rg_ie").inputmask({
-        mask: "99.999.999-9"
-    });
-   
+
+
     tipo.value = 'Pessoa Física'
 })
 
@@ -299,9 +320,7 @@ pj.addEventListener('click', () => {
     $("#cpf_cnpj").inputmask({
         mask: "99.999.999/9999-99"
     });
-    $("#rg_ie").inputmask({
-        mask: ""
-    });
+
 
     tipo.value = 'Pessoa Jurídica'
 
@@ -334,6 +353,13 @@ fechar.addEventListener('click', () => {
 
     inputs.classList.add('esconder')
     adcEndereco.classList.add('esconder')
+
+    cpf_cnpj.classList.remove('is-valid')
+    nome_fantasia.classList.remove('is-valid')
+    dtnascimento_abertura.classList.remove('is-valid')
+    rg_ie.classList.remove('is-valid')
+    sobrenome_razao.classList.remove('is-valid')
+
 })
 
 // QUANDO CLICAR PARA NO BOTÃO X PRARA FECHAR O FORMULÁRIO IRÁ VAI LIMPAR O FORMULÁRIO
@@ -345,45 +371,76 @@ fecharX.addEventListener('click', () => {
 
     inputs.classList.add('esconder')
     adcEndereco.classList.add('esconder')
+
+    cpf_cnpj.classList.remove('is-valid')
+    nome_fantasia.classList.remove('is-valid')
+    dtnascimento_abertura.classList.remove('is-valid')
+    rg_ie.classList.remove('is-valid')
+    sobrenome_razao.classList.remove('is-valid')
+
 })
 
-//ELE IRÁ VERIFICAR SE O RADIO DO EXIBIR É VERDADEIRO PARA EXIBIR OS CAMPOS
-if (exibirPf.checked == true) {
-    exibirInputs.classList.remove('esconder')
 
-    exibirLabelCpf_Cnpj.innerHTML = 'CPF'
-    exibirLabelNome_Fantasia.innerHTML = 'Nome '
-    exibirLabelSobrenome_Razao.innerHTML = 'Sobrenome'
-    exibirLabelRg_Ie.innerHTML = 'RG'
-    exibirLabelDtNascimento_Abertura.innerHTML = 'Data de Nascimento'
-
-    //EXIBI AS MÁSCARAS
-    $("#cpf_cnpj").inputmask({
-        mask: "999.999.999-99"
-    });
-    $("#rg_ie").inputmask({
-        mask: "99.999.999-9"
-    });
-}else if (exibirPj.checked == true){
-    exibirInputs.classList.remove('esconder')
-
-    exibirLabelCpf_CnpjCpf_Cnpj.innerHTML = 'CNPJ'
-    exibirLabelNome_Fantasia.innerHTML = 'Nome Fantasia'
-    exibirLabelSobrenome_Razao.innerHTML = 'Razão social'
-    exibirLabelRg_Ie.innerHTML = 'IE'
-    exibirLabelDtNascimento_Abertura.innerHTML = 'Data de Abertura'
-    
-    //EXIBI AS MÁSCARAS
-    $("#cpf_cnpj").inputmask({
-        mask: "99.999.999/9999-99"
-    });
-    $("#rg_ie").inputmask({
-        mask: ""
-    });
-}else{
-    exibirInputs.classList.add('esconder')
-}
 
 $("#cep").inputmask({
     mask: "99999-999"
 });
+
+
+function mostrar(cliente) {
+
+    const nome_fantasia = cliente.nome_fantasia;
+    const sobrenome_razao = cliente.sobrenome_razao;
+    const cpf_cnpj = cliente.cpf_cnpj;
+    const rg_ie = cliente.rg_ie;
+    const dtnascimento_abertura = cliente.dtnascimento_abertura;
+    const tipo = cliente.tipo;
+
+    $("#exibirNome_fantasia").val(nome_fantasia);
+    $("#exibirSobrenome_razao").val(sobrenome_razao);
+    $("#exibirCpf_cnpj").val(cpf_cnpj);
+    $("#exibirRg_ie").val(rg_ie);
+    $("#exibirDtNascimento_Abertura").val(dtnascimento_abertura);
+    document.querySelector("#exibirTipo").value = tipo;
+
+    if (document.querySelector("#exibirTipo").value == 'Pessoa Física') {
+        exibirPf.checked = true
+        exibirPf.click()
+        exibirInputs.classList.remove('esconder')
+
+        exibirLabelCpf_Cnpj.innerHTML = 'CPF'
+        exibirLabelNome_Fantasia.innerHTML = 'Nome '
+        exibirLabelSobrenome_Razao.innerHTML = 'Sobrenome'
+        exibirLabelRg_Ie.innerHTML = 'RG'
+        exibirLabelDtNascimento_Abertura.innerHTML = 'Data de Nascimento'
+
+        //EXIBI AS MÁSCARAS
+        $("#cpf_cnpj").inputmask({
+            mask: "999.999.999-99"
+        });
+    } else if (document.querySelector("#exibirTipo").value == 'Pessoa Jurídica') {
+        exibirPj.checked = true
+        exibirPj.click()
+
+        exibirInputs.classList.remove('esconder')
+
+        exibirLabelCpf_Cnpj.innerHTML = 'CNPJ'
+        exibirLabelNome_Fantasia.innerHTML = 'Nome Fantasia'
+        exibirLabelSobrenome_Razao.innerHTML = 'Razão social'
+        exibirLabelRg_Ie.innerHTML = 'IE'
+        exibirLabelDtNascimento_Abertura.innerHTML = 'Data de Abertura'
+
+        //EXIBI AS MÁSCARAS
+        $("#cpf_cnpj").inputmask({
+            mask: "99.999.999/9999-99"
+        });
+
+    } else {
+        exibirPj.checked = false
+        exibirPf.checked = false
+        exibirInputs.classList.add('esconder')
+    }
+    //ELE IRÁ VERIFICAR SE O RADIO DO EXIBIR É VERDADEIRO PARA EXIBIR OS CAMPOS
+    
+
+}

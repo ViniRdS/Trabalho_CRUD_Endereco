@@ -91,7 +91,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="sobrenome_razao" class="form-label" id="labelSobrenome_Razao"></label>
-                                        <input type="text" class="form-control" id="sobrenome_razao" name="sobrenome_razao">
+                                        <input type="text" class="form-control" id="sobrenome_razao" name="sobrenome_razao" required>
                                     </div>
 
                                     <div class="form-group">
@@ -124,6 +124,7 @@
     <div class="modal fade" id="exibirModal" tabindex="-1" aria-labelledby="exibirModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable exibir-dialog">
             <div class="modal-content exibir">
+                <input type="text" id="exibirTipo" name="exibirTipo" class="esconder">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exibirModalLabel">Exibir</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -190,7 +191,7 @@
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                 </div>
             </div>
-            
+
         </div>
     </div>
     </div>
@@ -229,6 +230,10 @@
                         <div class="form-group">
                             <label for="ibge" class="form-label">IBGE</label>
                             <input type="text" class="form-control" id="ibge" name="ibge">
+                        </div>
+                        <div class="form-group">
+                            <label for="titulo" class="form-label">Titulo</label>
+                            <input type="text" class="form-control" id="titulo" name="titulo">
                         </div>
                     </div>
                 </div>
