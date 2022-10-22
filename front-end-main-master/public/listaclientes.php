@@ -81,27 +81,27 @@
                                     <label class="form-check-label" for="pessoaJuridica">Pessoa Jurídica</label>
                                 </div>
                                 <div id="inputs" class="esconder">
-                                    <div class="form-group">
+                                <div class="form-group">
                                         <label for="cpf_cnpj" class="form-label" id="labelCpf_Cnpj"></label>
-                                        <input type="text" class="form-control" id="cpf_cnpj" name="cpf_cnpj" required>
+                                        <input type="text" class="form-control" id="cpf_cnpj" name="cpf_cnpj" required minlength="11" >
                                     </div>
                                     <div class="form-group">
                                         <label for="nome_fantasia" class="form-label" id="labelNome_Fantasia"></label>
-                                        <input type="text" class="form-control" id="nome_fantasia" name="nome_fantasia" required>
+                                        <input type="text" class="form-control" id="nome_fantasia" name="nome_fantasia" required minlength="3">
                                     </div>
                                     <div class="form-group">
                                         <label for="sobrenome_razao" class="form-label" id="labelSobrenome_Razao"></label>
-                                        <input type="text" class="form-control" id="sobrenome_razao" name="sobrenome_razao" required>
+                                        <input type="text" class="form-control" id="sobrenome_razao" name="sobrenome_razao" required minlength="3">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="rg_ie" class="form-label" id="labelRg_Ie"></label>
-                                        <input type="text" class="form-control" id="rg_ie" name="rg_ie" required>
+                                        <input type="text" class="form-control" id="rg_ie" name="rg_ie" required minlength="6">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="dtnascimento_abertura" class="form-label" id="labelDtNascimento_Abertura">Data de Nascimento</label>
-                                        <input type="date" class="form-control" id="dtnascimento_abertura" name="dtnascimento_abertura">
+                                        <input type="date" class="form-control" id="dtnascimento_abertura" name="dtnascimento_abertura" required>
                                     </div>
                                 </div>
                             </div>

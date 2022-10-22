@@ -61,11 +61,14 @@ let validade = $('#frmcliente').validate({
     rules: {
         //bloqueamos uma quantidade minima de caracteres
         //para o campo nome e sobre nome.
+        cpf_cnpj: {
+            maxlength:"14"
+        },
         nome: {
-            minlength: 3
+            maxlength: "20"
         },
         sobrenome: {
-            minlength: 3
+            maxlength:"30"
         },
     },
     //definimos que as mensagem de formulário serão adicionadas a uma tag
