@@ -55,21 +55,16 @@ const sobrenome_razao = document.querySelector('#sobrenome_razao');
 const rg_ie = document.querySelector('#rg_ie');
 
 
+
 //CONFIGURAÇÕES DOS PARAMENTRO DE VALIDAÇÃO DO FORMULÁRIO
-let validade = $('#frmcliente').validate({
+ $('#frmcliente').validate({
     //adiconamos regras de validação ao formulário
     rules: {
         //bloqueamos uma quantidade minima de caracteres
         //para o campo nome e sobre nome.
-        cpf_cnpj: {
-            maxlength:"14"
-        },
-        nome: {
-            maxlength: "20"
-        },
-        sobrenome: {
-            maxlength:"30"
-        },
+       
+        
+       
     },
     //definimos que as mensagem de formulário serão adicionadas a uma tag
     // <span>Mensagem</span>
@@ -89,7 +84,7 @@ let validade = $('#frmcliente').validate({
 
 
 });
-
+ 
 async function deleta(id) {
     document.getElementById('idcliente').value = id;
     const form = document.querySelector('#clientes');
@@ -268,6 +263,11 @@ salvar.addEventListener('click', function () {
 
                 carregando.classList.add('d-none');
                 titulo.classList.remove('d-none')
+
+                pf.checked = false;
+                inputs.classList.add('esconder')
+                adcEndereco.classList.add('esconder')
+                pj.checked = false;
             }, 500);
         } else if (document.getElementById('acao').value == 'insert') {
             titulo.className = 'd-none';
@@ -287,6 +287,10 @@ salvar.addEventListener('click', function () {
 
                 carregando.classList.add('d-none');
                 titulo.classList.remove('d-none')
+
+                pf.checked = false;
+                inputs.classList.add('esconder')
+                pj.checked = false;
             }, 500);
         }
         /*alerta.className = 'alert alert-primary';
@@ -314,9 +318,18 @@ pf.addEventListener('click', () => {
     $("#cpf_cnpj").inputmask({
         mask: '999.999.999-99'
     });
-
+    
+    cpf_cnpj.classList.remove('is-valid')
+    cpf_cnpj.classList.remove('is-invalid')
 
     tipo.value = 'Pessoa Física'
+    
+     $('#frmcliente').each(function () {
+        $('#cpf_cnpj').rules("add", { cpfBR: true,cnpjBR: false})
+     })
+    
+    
+    
 })
 
 // EVENTO CLICK DO RADIO PJ DO CADASTRAR
@@ -335,9 +348,16 @@ pj.addEventListener('click', () => {
         mask: "99.999.999/9999-99"
     });
 
+    
+    cpf_cnpj.classList.remove('is-valid')
+    cpf_cnpj.classList.remove('is-invalid')
+
 
     tipo.value = 'Pessoa Jurídica'
 
+    $('#frmcliente').each(function () {
+        $('#cpf_cnpj').rules("add", { cpfBR: false,cnpjBR: true})
+     })
 })
 
 //MUDA A ESTRUTURA DO BOTÃO VOLTAR DO MODAL DE ENDEREÇO PARA VOLTAR PARA O CADASTRO QUANDO CLICAR
