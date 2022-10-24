@@ -419,11 +419,10 @@ fecharX.addEventListener('click', () => {
 
 })
 
-
-
+/*
 $("#cep").inputmask({
     mask: "99999-999"
-});
+});*/
 
 
 function mostrar(cliente) {
