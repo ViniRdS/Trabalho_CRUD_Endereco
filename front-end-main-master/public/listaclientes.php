@@ -213,7 +213,6 @@
     </div>
 
     <!-- Modal cadastrar endereço -->
-
     <div class="modal fade" id="cadasdroEnderecoModal" tabindex="-1" aria-labelledby="cadasdroEnderecoModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -268,8 +267,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" id="voltarBtn" class="btn btn-secondary" data-bs-target="#exibirModal" data-bs-toggle="modal">Voltar</button>
-                        <button type="button" class="btn btn-success" id="salvarEnderecoBtn">Salvar</button>
-        
+                        <button type="button" class="btn btn-success" id="salvarEnderecoBtn">Salvar</button
                     </div>
             </div>
             </form>
