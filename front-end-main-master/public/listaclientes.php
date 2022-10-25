@@ -239,7 +239,7 @@
                         </div>
                         <div class="form-group">
                             <label for="cep" class="form-label">CEP<span class="text-danger"> * </span></label>
-                            <input type="text" class="form-control" id="cep" name="cep" required>
+                            <input type="text" class="form-control" id="cep" name="cep" minlength="9" maxlength="9" required>
                         </div>
                         <div class="form-group">
                             <label for="logradouro" class="form-label">Logradouro<span class="text-danger"> * </span></label>

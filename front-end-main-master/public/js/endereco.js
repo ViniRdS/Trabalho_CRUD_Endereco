@@ -1,3 +1,71 @@
+//INPUT ENDEREÇO
+const Fcep = document.querySelector('#cep');
+const Flogradouro = document.querySelector('#logradouro');
+const Fbairro = document.querySelector('#bairro');
+const Fcidade = document.querySelector('#cidade');
+const Fuf = document.querySelector('#uf');
+const Fibge = document.querySelector('#ibge');
+const Ftitulo = document.querySelector('#titulo');
+
+//ACEITAR APENAS NÚMEROS NO INPUT
+Fcep.addEventListener("keypress",(e)=>{
+    const apenasNum=/[0-9]/;
+    const tecla=String.fromCharCode(e.keyCode);
+    
+    if(!apenasNum.test(tecla)){
+        e.preventDefault();
+        return;
+    }
+    });
+
+//Conseguir o CEP após digita-lo
+Fcep.addEventListener("keyup",(e)=>{
+    const valorCEP=e.target.value;
+    //CONFERIR O TAMANHO CORRETO
+    if(valorCEP.length===9){
+        GETCPF(valorCEP);
+    }
+
+});
+    //PEGAR OS DADOS DA API
+    const GETCPF= async(cep)=>{
+    const UrlAPI=`https://viacep.com.br/ws/${cep}/json/`
+    const respostaAPI=await fetch(UrlAPI);
+    const dados = await respostaAPI.json();
+
+    //DADOS DA API NOS INPUTS
+    if((Fcep.value!=="")&&(Fcep.length=8)&&(dados.erro !== true)){
+        console.log('colocar dados');
+        Flogradouro.value=dados.logradouro;
+        Fbairro.value=dados.bairro;
+        Fcidade.value=dados.localidade;
+        Fuf.value=dados.uf;
+        Fibge.value=dados.ibge;
+
+    }
+
+    //CASO O CEP SEJA INVÁLIDO
+    if (dados.erro === true) {
+        Flogradouro.value="";
+        Fbairro.value="";
+        Fcidade.value="";
+        Fuf.value="";
+        Fibge.value="";
+        //Depois colocar um aviso de cep inválido
+        console.log('Erro no cep');
+
+        return;
+        }
+
+    /* Deixar os campos vazias caso cep esteja vazio?
+        if (FormCEP.value===""){
+            formulario.reset();
+            //formulario.value="";
+        }
+
+        */
+};
+
 //BOTÃO SALVAR ENDEREÇO
 const salvarEndereco = document.querySelector('#salvarEnderecoBtn')
 // MODAL EXIBIR
@@ -14,15 +82,10 @@ const voltarbtnX = document.querySelector('#voltarX')
 
 
 $('#frmendereco').validate({
-    
     rules: {
-       
         cep:{
             postalcodeBR:true
         },
-        
-        
-       
     },
     
     errorElement: 'span',
