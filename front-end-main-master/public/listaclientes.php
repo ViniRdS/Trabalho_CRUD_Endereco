@@ -81,9 +81,9 @@
                                     <label class="form-check-label" for="pessoaJuridica">Pessoa Jurídica</label>
                                 </div>
                                 <div id="inputs" class="esconder">
-                                <div class="form-group">
+                                    <div class="form-group">
                                         <label for="cpf_cnpj" class="form-label" id="labelCpf_Cnpj"></label>
-                                        <input type="text" class="form-control" id="cpf_cnpj" name="cpf_cnpj" required >
+                                        <input type="text" class="form-control" id="cpf_cnpj" name="cpf_cnpj" required minlength="11" >
                                     </div>
                                     <div class="form-group">
                                         <label for="nome_fantasia" class="form-label" id="labelNome_Fantasia"></label>
@@ -106,7 +106,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="button" id="adicionarEndereco" class="btn btn-success mt-2 esconder" data-bs-toggle="modal" data-bs-target="#cadasdroEnderecoModal"><i class="bi bi-plus-circle"></i>Cadastrar Endereço</button>
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="fechar">
@@ -124,68 +124,84 @@
     <div class="modal fade" id="exibirModal" tabindex="-1" aria-labelledby="exibirModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable exibir-dialog">
             <div class="modal-content exibir">
+                <form id="frmenderecoexibir" name="frmenderecoexibir" method="post">
+                    <input type="text" id="idEnderecoExibir" name="idEnderecoExibir" class="esconder">
+                    <input type="text" id="idEnd" name="idEnd" class="esconder">
+                </form>
                 <input type="text" id="exibirTipo" name="exibirTipo" class="esconder">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exibirModalLabel">Exibir</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="row">
-                        <div class="col-12 div-radio-exibir">
-                            <div class="mb-3 form-check div-radio" id="exibir-div-radio-pf">
-                                <input type="radio" class="form-check-input" name="exibirPessoa" id="exibirPessoaFisica" value="Pessoa Fìsica" disabled>
-                                <label class="form-check-label" for="pessoaFisica">Pessoa Física</label>
-                            </div>
-                            <div class="mb-3 form-check div-radio" id="exibir-div-radio-pj">
-                                <input type="radio" class="form-check-input" name="exibirPessoa" id="exibirPessoaJuridica" value="Pessoa Jurídica" disabled>
-                                <label class="form-check-label" for="pessoaJuridica">Pessoa Jurídica</label>
-                            </div>
-
-                            <div id="exibirInputs" class="esconder">
-                                <div class="form-group">
-                                    <label for="exibirCpf_cnpj" class="form-label" id="exibirLabelCpf_Cnpj"></label>
-                                    <input type="text" class="form-control" id="exibirCpf_cnpj" name="exibirCpf_cnpj" disabled>
+                    <nav>
+                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                            <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Cliente</button>
+                            <button class="nav-link" id="nav-endereco-tab" name="nav-endereco-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Endereço</button>
+                        </div>
+                    </nav>
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+                            <div class="col-12 div-radio-exibir">
+                                <div class="mb-3 form-check div-radio" id="exibir-div-radio-pf">
+                                    <input type="radio" class="form-check-input" name="exibirPessoa" id="exibirPessoaFisica" value="Pessoa Fìsica" disabled>
+                                    <label class="form-check-label" for="pessoaFisica">Pessoa Física</label>
                                 </div>
-                                <div class="form-group">
-                                    <label for="exibirNome_fantasia" class="form-label" id="exibirLabelNome_Fantasia"></label>
-                                    <input type="text" class="form-control" id="exibirNome_fantasia" name="exibirNome_fantasia" disabled>
-                                </div>
-                                <div class="form-group">
-                                    <label for="exibirSobrenome_razao" class="form-label" id="exibirLabelSobrenome_Razao"></label>
-                                    <input type="text" class="form-control" id="exibirSobrenome_razao" name="exibirSobrenome_razao" disabled>
+                                <div class="mb-3 form-check div-radio" id="exibir-div-radio-pj">
+                                    <input type="radio" class="form-check-input" name="exibirPessoa" id="exibirPessoaJuridica" value="Pessoa Jurídica" disabled>
+                                    <label class="form-check-label" for="pessoaJuridica">Pessoa Jurídica</label>
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="exibirRg_ie" class="form-label" id="exibirLabelRg_Ie"></label>
-                                    <input type="text" class="form-control" id="exibirRg_ie" name="exibirRg_ie" disabled>
-                                </div>
+                                <div id="exibirInputs" class="esconder">
+                                    <div class="form-group">
+                                        <label for="exibirCpf_cnpj" class="form-label" id="exibirLabelCpf_Cnpj"></label>
+                                        <input type="text" class="form-control" id="exibirCpf_cnpj" name="exibirCpf_cnpj" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exibirNome_fantasia" class="form-label" id="exibirLabelNome_Fantasia"></label>
+                                        <input type="text" class="form-control" id="exibirNome_fantasia" name="exibirNome_fantasia" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exibirSobrenome_razao" class="form-label" id="exibirLabelSobrenome_Razao"></label>
+                                        <input type="text" class="form-control" id="exibirSobrenome_razao" name="exibirSobrenome_razao" disabled>
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="exibirDtNascimento_Abertura" class="form-label" id="exibirLabelDtNascimento_Abertura">Data de Nascimento</label>
-                                    <input type="date" class="form-control" id="exibirDtNascimento_Abertura" name="exibirDtNascimento_Abertura" disabled>
+                                    <div class="form-group">
+                                        <label for="exibirRg_ie" class="form-label" id="exibirLabelRg_Ie"></label>
+                                        <input type="text" class="form-control" id="exibirRg_ie" name="exibirRg_ie" disabled>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="exibirDtNascimento_Abertura" class="form-label" id="exibirLabelDtNascimento_Abertura">Data de Nascimento</label>
+                                        <input type="date" class="form-control" id="exibirDtNascimento_Abertura" name="exibirDtNascimento_Abertura" disabled>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <button type="button" id="ExibirCadastroEndereco" class="btn btn-success mt-2" data-bs-toggle="modal" data-bs-target="#cadasdroEnderecoModal"><i class="bi bi-plus-circle"></i>Cadastrar Endereço</button>
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Código</th>
-                                    <th scope="col">Titulo</th>
-                                    <th scope="col">CEP</th>
-                                    <th scope="col">Logradouro</th>
-                                    <th scope="col">Bairro</th>
-                                    <th scope="col">Cidade</th>
-                                    <th scope="col">UF</th>
-                                    <th scope="col">IBGE</th>
-                                    <th scope="col"></th>
-                                </tr>
-                            </thead>
-                            <tbody id="dadosEnderecos">
+                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+                            <button type="button" id="ExibirCadastroEndereco" class="btn btn-success mt-2" data-bs-toggle="modal" data-bs-target="#cadasdroEnderecoModal"><i class="bi bi-plus-circle"></i>Cadastrar Endereço</button>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Código</th>
+                                        <th scope="col">Titulo</th>
+                                        <th scope="col">CEP</th>
+                                        <th scope="col">Logradouro</th>
+                                        <th scope="col">Bairro</th>
+                                        <th scope="col">Cidade</th>
+                                        <th scope="col">UF</th>
+                                        <th scope="col">IBGE</th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="dadosEnderecos">
 
-                            </tbody>
-                        </table>
+                                </tbody>
+                            </table>
+                        </div>
+
                     </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -201,46 +217,64 @@
     <div class="modal fade" id="cadasdroEnderecoModal" tabindex="-1" aria-labelledby="cadasdroEnderecoModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="cadasdroEnderecoModalLabel">Cadastrar Endereço</h1>
-                    <button type="button" class="btn-close" data-bs-target="#exibirModal" data-bs-toggle="modal" aria-label="Close" id="voltarX"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <div>
-                            <label for="cep" class="form-label">CEP</label>
-                            <input type="text" class="form-control" id="cep" name="cep">
+                <form method="post" name="frmendereco" id="frmendereco">
+                    <input type="text" id="idEndereco" name="idEndereco" class="esconder">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="cadasdroEnderecoModalLabel">Cadastrar Endereço</h1>
+                        <button type="button" class="btn-close" data-bs-target="#exibirModal" data-bs-toggle="modal" aria-label="Close" id="voltarX"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="alertaEndereco" class="alert alert-warning" role="alert">
+                            <div id="tituloEndereco" class="mb-0">
+                                <h6 class="alert-heading">Atenção!</h6>
+                                Todos os campos com <span class="text-danger"> * </span> são obrigatórios para o
+                                cadastro!
+                            </div>
+                            <div id="carregandoEndereco" class="mb-0 d-none">
+                                <div class="spinner-border text-primary spinner-border-sm" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                                <span>Salvando...</span>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label for="logradouro" class="form-label">Logradouro</label>
-                            <input type="text" class="form-control" id="logradouro" name="logradouro">
+                            <label for="cep" class="form-label">CEP<span class="text-danger"> * </span></label>
+                            <input type="text" class="form-control" id="cep" name="cep" required>
                         </div>
                         <div class="form-group">
-                            <label for="bairro" class="form-label">Bairro</label>
-                            <input type="text" class="form-control" id="bairro" name="bairro">
+                            <label for="logradouro" class="form-label">Logradouro<span class="text-danger"> * </span></label>
+                            <input type="text" class="form-control" id="logradouro" name="logradouro" required>
                         </div>
                         <div class="form-group">
-                            <label for="cidade" class="form-label">Cidade</label>
-                            <input type="text" class="form-control" id="cidade" name="cidade">
+                            <label for="bairro" class="form-label">Bairro<span class="text-danger"> * </span></label>
+                            <input type="text" class="form-control" id="bairro" name="bairro" required>
                         </div>
                         <div class="form-group">
-                            <label for="uf" class="form-label">UF</label>
-                            <input type="text" class="form-control" id="uf" name="uf">
+                            <label for="cidade" class="form-label">Cidade<span class="text-danger"> * </span></label>
+                            <input type="text" class="form-control" id="cidade" name="cidade" required>
                         </div>
                         <div class="form-group">
-                            <label for="ibge" class="form-label">IBGE</label>
-                            <input type="text" class="form-control" id="ibge" name="ibge">
+                            <label for="uf" class="form-label">UF<span class="text-danger"> * </span></label>
+                            <input type="text" class="form-control" id="uf" name="uf" maxlength="2" required>
                         </div>
                         <div class="form-group">
-                            <label for="titulo" class="form-label">Titulo</label>
-                            <input type="text" class="form-control" id="titulo" name="titulo">
+                            <label for="ibge" class="form-label">IBGE<span class="text-danger"> * </span></label>
+                            <input type="text" class="form-control" id="ibge" name="ibge" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="titulo" class="form-label">Titulo<span class="text-danger"> * </span></label>
+                            <input type="text" class="form-control" id="titulo" name="titulo" required>
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer" id="divBtnEndereco">
-                </div>
+                    <div class="modal-footer">
+                        <button type="button" id="voltarBtn" class="btn btn-secondary" data-bs-target="#exibirModal" data-bs-toggle="modal">Voltar</button>
+                        <button type="button" class="btn btn-success" id="salvarEnderecoBtn">Salvar</button>
+        
+                    </div>
             </div>
+            </form>
         </div>
+    </div>
     </div>
     <div class="container">
         <form id="clientes" name="clientes">
@@ -260,11 +294,12 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="input-group mb-3">
-                                        <input type="text" class="form-control" placeholder="O que você procura?">
-                                        <span class="input-group-text" id="basic-addon2">
+                                        <input type="text" class="form-control" id="pesquisa" name="pesquisa" placeholder="O que você procura?">
+                                        <span class="input-group-text" id="btnPesquisar">
                                             <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
                                         </span>
                                     </div>
+
                                 </div>
                             </div>
                             <table class="table table-striped table-hover">
@@ -305,8 +340,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/localization/messages_pt_BR.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/localization/methods_pt.min.js"></script>
 
+
     <script src="js/request.js"></script>
     <script src="js/cliente.js"></script>
+    <script src="js/pesquisa.js"></script>
+    <script src="js/endereco.js"></script>
 </body>
 
 </html>

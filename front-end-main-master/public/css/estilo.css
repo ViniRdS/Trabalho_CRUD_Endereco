@@ -35,3 +35,6 @@ table{
 body{
     width: 100%;
 }
+.error{
+    color: red;
+}
