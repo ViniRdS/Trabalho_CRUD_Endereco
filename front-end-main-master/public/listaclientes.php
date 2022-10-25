@@ -200,44 +200,45 @@
     <div class="modal fade" id="cadasdroEnderecoModal" tabindex="-1" aria-labelledby="cadasdroEnderecoModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
+            
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="cadasdroEnderecoModalLabel">Cadastrar Endereço</h1>
                     <button type="button" class="btn-close" data-bs-target="#exibirModal" data-bs-toggle="modal" aria-label="Close" id="voltarX"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group" id="frmend">
-                        <div>
-                            <label for="cep" class="form-label">CEP</label>
-                            <input type="text" class="form-control" id="cep" name="cep" minlength="8" maxlength="8" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="logradouro" class="form-label">Logradouro</label>
-                            <input type="text" class="form-control" id="logradouro" name="logradouro" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="bairro" class="form-label">Bairro</label>
-                            <input type="text" class="form-control" id="bairro" name="bairro" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="cidade" class="form-label">Cidade</label>
-                            <input type="text" class="form-control" id="cidade" name="cidade" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="uf" class="form-label">UF</label>
-                            <input type="text" class="form-control" id="uf" name="uf" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="ibge" class="form-label">IBGE</label>
-                            <input type="text" class="form-control" id="ibge" name="ibge" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="titulo" class="form-label">Titulo</label>
-                            <input type="text" class="form-control" id="titulo" name="titulo" required>
-                        </div>
                     </div>
+                                  <!---->
+                        <div class="modal-body">
+                                <div>
+                                    <label for="cep" class="form-label">CEP</label>
+                                    <input type="text" class="form-control" id="cep" name="cep" minlength="8" maxlength="8" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="logradouro" class="form-label">Logradouro</label>
+                                    <input type="text" class="form-control" id="logradouro" name="logradouro" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="bairro" class="form-label">Bairro</label>
+                                    <input type="text" class="form-control" id="bairro" name="bairro" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cidade" class="form-label">Cidade</label>
+                                    <input type="text" class="form-control" id="cidade" name="cidade" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="uf" class="form-label">UF</label>
+                                    <input type="text" class="form-control" id="uf" name="uf" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="ibge" class="form-label">IBGE</label>
+                                    <input type="text" class="form-control" id="ibge" name="ibge" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="titulo" class="form-label">Titulo</label>
+                                    <input type="text" class="form-control" id="titulo" name="titulo" required>
+                                </div>
+                        </div>
+                    <div class="modal-footer" id="divBtnEndereco">
                 </div>
-                <div class="modal-footer" id="divBtnEndereco">
-                </div>
+            
             </div>
         </div>
     </div>

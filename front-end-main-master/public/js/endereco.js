@@ -32,24 +32,39 @@ Fcep.addEventListener("keyup",(e)=>{
     const GETCPF= async(cep)=>{
     const UrlAPI=`https://viacep.com.br/ws/${cep}/json/`
     const respostaAPI=await fetch(UrlAPI);
-    const dados = await respostaAPI.json()
+    const dados = await respostaAPI.json();
 
-    console.log(dados);
-
-
-    //No caso de erros
-    if (dados.erro == "true") {
-        //arrumar isso
-        //mensagem de erro(arrumar isso)
-        
-        }
-    
     //dados da api nos inputs
-    Flogradouro.value=dados.logradouro;
-    Fbairro.value=dados.bairro;
-    Fcidade.value=dados.localidade;
-    Fuf.value=dados.uf;
-    Fibge.value=dados.ibge;
-    
+    if((Fcep.value!=="")&&(Fcep.length=8)&&(dados.erro !== true)){
+        console.log('colocar dados');
+        Flogradouro.value=dados.logradouro;
+        Fbairro.value=dados.bairro;
+        Fcidade.value=dados.localidade;
+        Fuf.value=dados.uf;
+        Fibge.value=dados.ibge;
 
+    }
+
+    //caso de erros
+    if (dados.erro === true) {
+        //formulario.reset();
+        //Mudar quando tiver um formulario de endereços
+        Flogradouro.value="";
+        Fbairro.value="";
+        Fcidade.value="";
+        Fuf.value="";
+        Fibge.value="";
+        //Depois colocar um aviso de cep inválido
+        console.log('Erro no cep');
+
+        return;
+        }
+
+    /* Deixar os campos vazias caso cep esteja vazio?
+        if (FormCEP.value===""){
+            formulario.reset();
+            //formulario.value="";
+        }
+
+        */
 };
