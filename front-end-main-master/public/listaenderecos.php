@@ -1,9 +1,11 @@
 <?php
 include "Conection.php";
-$enderecos = $pdo->query('select * from endereco;')->fetchAll();
+try {
+$idEnd = $_POST['idEndere'];
+$enderecos = $pdo->query("select * from endereco where idcliente = {$idEnd};")->fetchAll();
 $dadosEndereco = "";
-foreach ($clientes as $key => $value) {
-    $dados = $dados . "<tr id='tr" . $value['id'] . "'>" .
+foreach ($enderecos as $key => $value) {
+    $dadosEndereco = $dadosEndereco . "<tr id='trEndereco" . $value['id'] . "'>" .
         "<td>" . $value['id'] . "</td>" .
         "<td>" . $value['titulo'] . "</td>" .
         "<td>" . $value['cep'] . "</td>" .
@@ -15,7 +17,7 @@ foreach ($clientes as $key => $value) {
         "<td>" .
         "<td>" .
         "<div class='btn-group' role='group'>" .
-        "<button onclick='deleta(" . $value['id'] . ");' type='button' class='btn btn-danger'>" .
+        "<button onclick='deletaEndereco(" . $value['id'] . ");' type='button' class='btn btn-danger' id='btnEndeDelete'>" .
         "<i class='fa-solid fa-trash'> </i> Excluir" .
         "</button>" .
         "</div>" .
@@ -23,4 +25,8 @@ foreach ($clientes as $key => $value) {
         "</td>" .
         "</tr>";
 }
+
 echo $dadosEndereco;
+} catch (PDOException $e) {
+    var_dump($e->getMessage());
+}
