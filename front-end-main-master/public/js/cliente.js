@@ -266,6 +266,7 @@ salvar.addEventListener('click', function () {
 
                 pf.checked = false;
                 inputs.classList.add('esconder')
+                
                 pj.checked = false;
             }, 500);
         } else if (document.getElementById('acao').value == 'insert') {
@@ -402,10 +403,11 @@ fecharX.addEventListener('click', () => {
 
 })
 
-/*
+
+
 $("#cep").inputmask({
     mask: "99999-999"
-});*/
+});
 
 
 function mostrar(cliente) {

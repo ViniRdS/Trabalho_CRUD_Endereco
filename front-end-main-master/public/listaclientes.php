@@ -83,7 +83,7 @@
                                 <div id="inputs" class="esconder">
                                     <div class="form-group">
                                         <label for="cpf_cnpj" class="form-label" id="labelCpf_Cnpj"></label>
-                                        <input type="text" class="form-control" id="cpf_cnpj" name="cpf_cnpj" required minlength="11" >
+                                        <input type="text" class="form-control" id="cpf_cnpj" name="cpf_cnpj" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="nome_fantasia" class="form-label" id="labelNome_Fantasia"></label>
@@ -213,6 +213,7 @@
     </div>
 
     <!-- Modal cadastrar endereço -->
+
     <div class="modal fade" id="cadasdroEnderecoModal" tabindex="-1" aria-labelledby="cadasdroEnderecoModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -268,6 +269,7 @@
                     <div class="modal-footer">
                         <button type="button" id="voltarBtn" class="btn btn-secondary" data-bs-target="#exibirModal" data-bs-toggle="modal">Voltar</button>
                         <button type="button" class="btn btn-success" id="salvarEnderecoBtn">Salvar</button>
+        
                     </div>
             </div>
             </form>
