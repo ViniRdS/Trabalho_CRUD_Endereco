@@ -129,7 +129,7 @@ function alterar(cliente) {
         pj.checked = false
         pf.checked = false
     }
-    adcEndereco.classList.add('esconder')
+    
 
     //exibimos o modal
     $("#cadastrocliente").modal('show');
@@ -266,7 +266,7 @@ salvar.addEventListener('click', function () {
 
                 pf.checked = false;
                 inputs.classList.add('esconder')
-                adcEndereco.classList.add('esconder')
+                
                 pj.checked = false;
             }, 500);
         } else if (document.getElementById('acao').value == 'insert') {
@@ -277,7 +277,7 @@ salvar.addEventListener('click', function () {
                 pf.checked = false
                 pj.checked = false
                 inputs.classList.add('esconder')
-                adcEndereco.classList.add('esconder')
+                
 
                 cpf_cnpj.classList.remove('is-valid')
                 nome_fantasia.classList.remove('is-valid')
@@ -307,13 +307,13 @@ salvar.addEventListener('click', function () {
 pf.addEventListener('click', () => {
     //MUDA OS CAMPOS PARA PESSOA FÍSICA
     //MUDA AS LABELS
-    labelCpf_Cnpj.innerHTML = 'CPF'
-    labelNome_Fantasia.innerHTML = 'Nome '
-    labelSobrenome_Razao.innerHTML = 'Sobrenome'
-    labelRg_Ie.innerHTML = 'RG'
-    labelDtNascimento_Abertura.innerHTML = 'Data de Nascimento'
+    labelCpf_Cnpj.innerHTML = 'CPF <span class="text-danger"> * </span>'
+    labelNome_Fantasia.innerHTML = 'Nome <span class="text-danger"> * </span>'
+    labelSobrenome_Razao.innerHTML = 'Sobrenome <span class="text-danger"> * </span>'
+    labelRg_Ie.innerHTML = 'RG <span class="text-danger"> * </span>'
+    labelDtNascimento_Abertura.innerHTML = 'Data de Nascimento <span class="text-danger"> * </span>'
     inputs.classList.remove('esconder')
-    adcEndereco.classList.remove('esconder')
+    
     //EXIBI AS MÁSCARAS
     $("#cpf_cnpj").inputmask({
         mask: '999.999.999-99'
@@ -336,13 +336,13 @@ pf.addEventListener('click', () => {
 pj.addEventListener('click', () => {
     //MUDA OS CAMPOS PARA PESSOA JURÍDICA
     //MUDA AS LABELS
-    labelCpf_Cnpj.innerHTML = 'CNPJ'
-    labelNome_Fantasia.innerHTML = 'Nome Fantasia'
-    labelSobrenome_Razao.innerHTML = 'Razão social'
-    labelRg_Ie.innerHTML = 'IE'
-    labelDtNascimento_Abertura.innerHTML = 'Data de Abertura'
+    labelCpf_Cnpj.innerHTML = 'CNPJ <span class="text-danger"> * </span>'
+    labelNome_Fantasia.innerHTML = 'Nome Fantasia <span class="text-danger"> * </span>'
+    labelSobrenome_Razao.innerHTML = 'Razão social <span class="text-danger"> * </span>'
+    labelRg_Ie.innerHTML = 'IE <span class="text-danger"> * </span>'
+    labelDtNascimento_Abertura.innerHTML = 'Data de Abertura <span class="text-danger"> * </span>'
     inputs.classList.remove('esconder')
-    adcEndereco.classList.remove('esconder')
+    
     //EXIBI AS MÁSCARAS
     $("#cpf_cnpj").inputmask({
         mask: "99.999.999/9999-99"
@@ -360,23 +360,7 @@ pj.addEventListener('click', () => {
      })
 })
 
-//MUDA A ESTRUTURA DO BOTÃO VOLTAR DO MODAL DE ENDEREÇO PARA VOLTAR PARA O CADASTRO QUANDO CLICAR
-adcEndereco.addEventListener('click', () => {
-    //ESCONDE O BOTÃO X QUANDO ABRIR O MODAL PELO CASDASTAR
-    document.querySelector("#voltarX").classList.add('esconder');
 
-    divBtnEndereco.innerHTML = ` <button type="button" id="voltarBtn" class="btn btn-secondary" data-bs-target="#cadastrocliente" data-bs-toggle="modal" >Voltar</button>
-        <button type="button" class="btn btn-success">Salvar</button>`
-})
-
-//MUDA A ESTRUTURA DO BOTÃO VOLTAR DO MODAL DE ENDEREÇO PARA VOLTAR PARA O EXIBIR QUANDO CLICAR
-adcExibirEndereco.addEventListener('click', function () {
-    //EXIBI O BOTÃO X QUANDO ABRIR O MODAL PELO EXIBIR
-    document.querySelector("#voltarX").classList.remove('esconder');
-
-    divBtnEndereco.innerHTML = ` <button type="button" id="voltarBtn" class="btn btn-secondary" data-bs-target="#exibirModal" data-bs-toggle="modal" >Voltar</button>
-        <button type="button" class="btn btn-success">Salvar</button>`
-})
 
 // QUANDO CLICAR NO BOTÃO FECHAR PARA FECHAR O FORMULÁRION IRÁ VAI LIMPAR O FORMULÁRIO
 fechar.addEventListener('click', () => {
@@ -419,14 +403,16 @@ fecharX.addEventListener('click', () => {
 
 })
 
-/*
+
 $("#cep").inputmask({
     mask: "99999-999"
-});*/
+});
 
 
 function mostrar(cliente) {
+    
 
+    const id = cliente.id;
     const nome_fantasia = cliente.nome_fantasia;
     const sobrenome_razao = cliente.sobrenome_razao;
     const cpf_cnpj = cliente.cpf_cnpj;
@@ -434,12 +420,17 @@ function mostrar(cliente) {
     const dtnascimento_abertura = cliente.dtnascimento_abertura;
     const tipo = cliente.tipo;
 
+    document.querySelector("#idEndereco").value = id;
+    
     $("#exibirNome_fantasia").val(nome_fantasia);
     $("#exibirSobrenome_razao").val(sobrenome_razao);
     $("#exibirCpf_cnpj").val(cpf_cnpj);
     $("#exibirRg_ie").val(rg_ie);
     $("#exibirDtNascimento_Abertura").val(dtnascimento_abertura);
     document.querySelector("#exibirTipo").value = tipo;
+    
+
+    
 
     if (document.querySelector("#exibirTipo").value == 'Pessoa Física') {
         exibirPf.checked = true
@@ -480,5 +471,17 @@ function mostrar(cliente) {
     }
     //ELE IRÁ VERIFICAR SE O RADIO DO EXIBIR É VERDADEIRO PARA EXIBIR OS CAMPOS
     
+    //$('#dadosEnderecos').load("listaenderecos.php", {"id": idE});
 
+    /* $.ajax({
+        type: "post",
+        url: "listaenderecos.php",
+        data: {idEndere: id}, success: function (idEndere){
+            $('#dadosEnderecos').html(idEndere)  
+        }
+       }) */
+       
+       lista_endereco()
+       
+   
 }
