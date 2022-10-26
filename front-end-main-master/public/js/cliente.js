@@ -315,6 +315,7 @@ pf.addEventListener('click', () => {
     inputs.classList.remove('esconder')
     
     //EXIBI AS MÁSCARAS
+    
     $("#cpf_cnpj").inputmask({
         mask: '999.999.999-99'
     });
@@ -344,11 +345,11 @@ pj.addEventListener('click', () => {
     inputs.classList.remove('esconder')
     
     //EXIBI AS MÁSCARAS
+    
     $("#cpf_cnpj").inputmask({
         mask: "99.999.999/9999-99"
     });
 
-    
     cpf_cnpj.classList.remove('is-valid')
     cpf_cnpj.classList.remove('is-invalid')
 
@@ -361,6 +362,57 @@ pj.addEventListener('click', () => {
 })
 
 
+//----COLOCANDO A API DE CNPJ EM AÇÃO----
+
+//ACEITAR APENAS NÚMEROS NO INPUT
+cpf_cnpj.addEventListener("keypress",(e)=>{
+    const apenasNum=/[0-9]/;
+    const tecla=String.fromCharCode(e.keyCode);
+    
+    if(!apenasNum.test(tecla)){
+        e.preventDefault();
+        return;
+    }
+    });
+    //Conseguir o CNPJ APÓS DIGITA-LO
+    cpf_cnpj.addEventListener("keyup",(e)=>{
+    const valorCNPJ=e.target.value;
+
+    //CONFERIR O TAMANHO CORRETO
+    if(valorCNPJ.length===18){
+        GETCNPJ(valorCNPJ);
+    }
+});
+    //DECLARANDO VARIAVEL DADOS COM VALOR ALEATÓRIO
+    let dados=Infinity;
+    const GETCNPJ= async()=>{
+    //TRANSFORMAR O VALOR DO INPUT EM STRING E DEPOIS REMOVER A MASCARA DESSA STRING
+    const cnpjstring = String(cpf_cnpj.value);
+    const cnpjsmask = cnpjstring.replace(/[^0-9,]*/g, '');
+    //PEGAR OS DADOS DA API APENAS SE O CNPJ SEM A MASCARA TIVER 14 CARACTERES
+    if(cnpjsmask.length===14){
+    //ENVIANDO O CNPJ SEM MASCARA
+    const UrlAPI=`https://brasilapi.com.br/api/cnpj/v1/${cnpjsmask}`;
+    const respostaAPI=await fetch(UrlAPI);
+    dados = await respostaAPI.json();
+    } 
+    //INSERIR DADOS DA API NOS INPUTS
+    if((cnpjsmask.length===14)&&(dados.type!=="bad_request")){
+        console.log('colocar dados');
+        nome_fantasia.value=dados.nome_fantasia;
+        sobrenome_razao.value=dados.razao_social;
+        dtnascimento_abertura.value=dados.data_inicio_atividade;
+    }
+    //CASO CNPJ INVÁLIDO
+    if ((dados.type==="bad_request")&&(cnpjsmask.length===14)) {
+        nome_fantasia.value="";
+        sobrenome_razao.value="";
+        dtnascimento_abertura.value="";
+        console.log('Erro no cnpj');
+        return;
+        }
+};
+//---------------------------------------
 
 // QUANDO CLICAR NO BOTÃO FECHAR PARA FECHAR O FORMULÁRION IRÁ VAI LIMPAR O FORMULÁRIO
 fechar.addEventListener('click', () => {
@@ -444,6 +496,7 @@ function mostrar(cliente) {
         exibirLabelDtNascimento_Abertura.innerHTML = 'Data de Nascimento'
 
         //EXIBI AS MÁSCARAS
+        
         $("#cpf_cnpj").inputmask({
             mask: "999.999.999-99"
         });
@@ -459,7 +512,9 @@ function mostrar(cliente) {
         exibirLabelRg_Ie.innerHTML = 'IE'
         exibirLabelDtNascimento_Abertura.innerHTML = 'Data de Abertura'
 
+
         //EXIBI AS MÁSCARAS
+        
         $("#cpf_cnpj").inputmask({
             mask: "99.999.999/9999-99"
         });

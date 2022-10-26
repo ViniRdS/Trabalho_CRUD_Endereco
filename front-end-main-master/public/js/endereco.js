@@ -51,7 +51,6 @@ Fcep.addEventListener("keyup",(e)=>{
         Fcidade.value="";
         Fuf.value="";
         Fibge.value="";
-        //Depois colocar um aviso de cep inválido
         console.log('Erro no cep');
 
         return;
@@ -62,7 +61,6 @@ Fcep.addEventListener("keyup",(e)=>{
             formulario.reset();
             //formulario.value="";
         }
-
         */
 };
 
