@@ -322,7 +322,22 @@ pf.addEventListener('click', () => {
     
     cpf_cnpj.classList.remove('is-valid')
     cpf_cnpj.classList.remove('is-invalid')
+    nome_fantasia.classList.remove('is-valid')
+    nome_fantasia.classList.remove('is-invalid')
+    sobrenome_razao.classList.remove('is-valid')
+    sobrenome_razao.classList.remove('is-invalid')
+    rg_ie.classList.remove('is-valid')
+    rg_ie.classList.remove('is-invalid')
+    dtnascimento_abertura.classList.remove('is-valid')
+    dtnascimento_abertura.classList.remove('is-invalid')
 
+    if(document.getElementById('acao').value == 'insert'){
+    cpf_cnpj.value = ''
+    nome_fantasia.value = ''
+    sobrenome_razao.value = ''
+    rg_ie.value = ''
+    dtnascimento_abertura.value = ''
+    }
     tipo.value = 'Pessoa Física'
     
      $('#frmcliente').each(function () {
@@ -352,6 +367,21 @@ pj.addEventListener('click', () => {
 
     cpf_cnpj.classList.remove('is-valid')
     cpf_cnpj.classList.remove('is-invalid')
+    nome_fantasia.classList.remove('is-valid')
+    nome_fantasia.classList.remove('is-invalid')
+    sobrenome_razao.classList.remove('is-valid')
+    sobrenome_razao.classList.remove('is-invalid')
+    rg_ie.classList.remove('is-valid')
+    rg_ie.classList.remove('is-invalid')
+    dtnascimento_abertura.classList.remove('is-valid')
+    dtnascimento_abertura.classList.remove('is-invalid')
+   if(document.getElementById('acao').value == 'insert'){
+    cpf_cnpj.value = ''
+    nome_fantasia.value = ''
+    sobrenome_razao.value = ''
+    rg_ie.value = ''
+    dtnascimento_abertura.value = ''
+    }
 
 
     tipo.value = 'Pessoa Jurídica'
@@ -430,6 +460,18 @@ fechar.addEventListener('click', () => {
     rg_ie.classList.remove('is-valid')
     sobrenome_razao.classList.remove('is-valid')
 
+    nome_fantasia.classList.remove('is-invalid')
+    sobrenome_razao.classList.remove('is-invalid')
+    rg_ie.classList.remove('is-invalid')
+    dtnascimento_abertura.classList.remove('is-invalid')
+    if(document.getElementById('acao').value == 'insert'){
+        cpf_cnpj.value = ''
+        nome_fantasia.value = ''
+        sobrenome_razao.value = ''
+        rg_ie.value = ''
+        dtnascimento_abertura.value = ''
+        }
+
     carregando.classList.add('d-none');
     titulo.classList.remove('d-none')
 })
@@ -449,6 +491,18 @@ fecharX.addEventListener('click', () => {
     dtnascimento_abertura.classList.remove('is-valid')
     rg_ie.classList.remove('is-valid')
     sobrenome_razao.classList.remove('is-valid')
+
+    nome_fantasia.classList.remove('is-invalid')
+    sobrenome_razao.classList.remove('is-invalid')
+    rg_ie.classList.remove('is-invalid')
+    dtnascimento_abertura.classList.remove('is-invalid')
+    if(document.getElementById('acao').value == 'insert'){
+        cpf_cnpj.value = ''
+        nome_fantasia.value = ''
+        sobrenome_razao.value = ''
+        rg_ie.value = ''
+        dtnascimento_abertura.value = ''
+        }
 
     carregando.classList.add('d-none');
     titulo.classList.remove('d-none')
