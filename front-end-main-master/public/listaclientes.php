@@ -214,7 +214,7 @@
 
     <!-- Modal cadastrar endereço -->
 
-    <div class="modal fade" id="cadasdroEnderecoModal" tabindex="-1" aria-labelledby="cadasdroEnderecoModalLabel" aria-hidden="true">
+    <div class="modal fade" id="cadasdroEnderecoModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="cadasdroEnderecoModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <form method="post" name="frmendereco" id="frmendereco">
