@@ -1,3 +1,10 @@
+body{
+    background: linear-gradient(#ffffff 50%, rgba(255,255,255,0) 0) 0 0, radial-gradient(circle closest-side, #FFFFFF 53%, rgba(255,255,255,0) 0) 0 0, radial-gradient(circle closest-side, #FFFFFF 50%, rgba(255,255,255,0) 0) 55px 0 #48B;
+    background-size: 110px 200px;
+    background-repeat: repeat-x;
+
+}
+
 .div-radio{
     display: inline-flex;
     margin-left: 80px;
@@ -37,4 +44,21 @@ body{
 }
 .error{
     color: red;
+}
+.holder {
+    display: flex;
+    justify-content: center;
+}
+.imagem {
+  width: 200px;
+  margin: 10px;
+  position: relative;
+  text-align: center;
+}
+.imagem::after {
+  content: attr(data-title); /* estilo que coloco a legenda no lugar */
+  position: absolute;
+  width: 100%;
+  bottom: -20px;
+  left: 0;
 }

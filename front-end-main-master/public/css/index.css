@@ -1,0 +1,31 @@
+.carousel-caption h5{
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 0.2em 0.2em .2em black
+}
+body{
+    background: linear-gradient(#ffffff 50%, rgba(255,255,255,0) 0) 0 0, radial-gradient(circle closest-side, #FFFFFF 53%, rgba(255,255,255,0) 0) 0 0, radial-gradient(circle closest-side, #FFFFFF 50%, rgba(255,255,255,0) 0) 55px 0 #48B;
+    background-size: 110px 200px;
+    background-repeat: repeat-x;
+
+}
+
+.carousel-item img{
+    height: 33rem;
+}
+footer{
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    padding: .5rem;
+}
+.text-h5{
+    text-align: end;
+    width: 10em;
+    height: 20em;
+}
+#horse-pink{
+    text-align: end;
+    width: 0em;
+    height: 30em;
+}

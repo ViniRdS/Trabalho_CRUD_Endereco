@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="cavalo1.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
@@ -13,16 +14,17 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-light">
+<nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Aula unesc</a>
+            <img src="./WhatsApp Image 2022-10-29 at 5.44.18 PM.jpeg" alt="some text" width=40 height=35>
+            <a class="navbar-brand" href="./index.php">⠀Horse Store</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.php">
+                        <a class="nav-link active" aria-current="page" href="./index.php">
                             <i class="fa-solid fa-house"> </i> Início
                         </a>
                     </li>
@@ -31,7 +33,11 @@
                             <i class="fa-solid fa-user"> </i> Clientes
                         </a>
                     </li>
+
                 </ul>
+            </div>
+            <div>
+
             </div>
         </div>
     </nav>
@@ -136,13 +142,13 @@
                 <div class="modal-body">
                     <nav>
                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                            <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Cliente</button>
-                            <button class="nav-link" id="nav-endereco-tab" name="nav-endereco-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Endereço</button>
+                            <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true"><i class="bi bi-person-fill p-1"></i>Cliente</button>
+                            <button class="nav-link" id="nav-endereco-tab" name="nav-endereco-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false"><i class="bi bi-geo-alt-fill p-1"></i>Endereço</button>
                         </div>
                     </nav>
                     <div class="tab-content" id="nav-tabContent">
                         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
-                            <div class="col-12 div-radio-exibir">
+                            <div class="col-12 div-radio-exibir mt-1">
                                 <div class="mb-3 form-check div-radio" id="exibir-div-radio-pf">
                                     <input type="radio" class="form-check-input" name="exibirPessoa" id="exibirPessoaFisica" value="Pessoa Fìsica" disabled>
                                     <label class="form-check-label" for="pessoaFisica">Pessoa Física</label>
@@ -179,7 +185,7 @@
                             </div>
                         </div>
                         <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
-                            <button type="button" id="ExibirCadastroEndereco" class="btn btn-success mt-2" data-bs-toggle="modal" data-bs-target="#cadasdroEnderecoModal"><i class="bi bi-plus-circle"></i>Cadastrar Endereço</button>
+                            <button type="button" id="ExibirCadastroEndereco" class="btn btn-success mt-3 mb-3" data-bs-toggle="modal" data-bs-target="#cadasdroEnderecoModal"><i class="bi bi-plus-circle p-1"></i>Cadastrar Endereço</button>
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -194,7 +200,7 @@
                                         <th scope="col"></th>
                                     </tr>
                                 </thead>
-                                <tbody id="dadosEnderecos">
+                                <tbody id="dadosEnderecos" class="table-group-divider">
 
                                 </tbody>
                             </table>
@@ -204,7 +210,7 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
                 </div>
             </div>
 
@@ -214,7 +220,7 @@
 
     <!-- Modal cadastrar endereço -->
 
-    <div class="modal fade" id="cadasdroEnderecoModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="cadasdroEnderecoModalLabel" aria-hidden="true">
+    <div class="modal fade" id="cadasdroEnderecoModal" tabindex="-1" aria-labelledby="cadasdroEnderecoModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <form method="post" name="frmendereco" id="frmendereco">
@@ -315,7 +321,7 @@
                                         <th></th>
                                     </tr>
                                 </thead>
-                                <tbody id="dados">
+                                <tbody id="dados" class="table-group-divider">
 
                                 </tbody>
                             </table>
