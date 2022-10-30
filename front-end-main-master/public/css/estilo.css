@@ -56,9 +56,13 @@ body{
   text-align: center;
 }
 .imagem::after {
-  content: attr(data-title); /* estilo que coloco a legenda no lugar */
+  content: attr(data-title);
   position: absolute;
   width: 100%;
   bottom: -20px;
   left: 0;
+}
+#container{
+    display: flex;
+    justify-content: center;
 }

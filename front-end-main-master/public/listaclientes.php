@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="cavalo1.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./black-head-horse-side-view-with-horsehair.png" type="image/x-icon">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
@@ -16,7 +16,7 @@
 <body>
 <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-            <img src="./WhatsApp Image 2022-10-29 at 5.44.18 PM.jpeg" alt="some text" width=40 height=35>
+            <img src="./horse-jumping-silhouette.png" alt="some text" width=40 height=35>
             <a class="navbar-brand" href="./index.php">⠀Horse Store</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -282,7 +282,7 @@
         </div>
     </div>
     </div>
-    <div class="container">
+    <div class="container" id="container">
         <form id="clientes" name="clientes">
             <input type="text" name="idcliente" id="idcliente">
             <div class="row">
