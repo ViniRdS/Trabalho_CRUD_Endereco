@@ -102,7 +102,7 @@
 
                                     <div class="form-group">
                                         <label for="rg_ie" class="form-label" id="labelRg_Ie"></label>
-                                        <input type="text" class="form-control" id="rg_ie" name="rg_ie" required minlength="6">
+                                        <input type="text" class="form-control" id="rg_ie" name="rg_ie" minlength="6">
                                     </div>
 
                                     <div class="form-group">
@@ -220,7 +220,7 @@
 
     <!-- Modal cadastrar endereço -->
 
-    <div class="modal fade" id="cadasdroEnderecoModal" tabindex="-1" aria-labelledby="cadasdroEnderecoModalLabel" aria-hidden="true">
+    <div class="modal fade" id="cadasdroEnderecoModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="cadasdroEnderecoModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <form method="post" name="frmendereco" id="frmendereco">

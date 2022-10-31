@@ -342,6 +342,7 @@ pf.addEventListener('click', () => {
     
      $('#frmcliente').each(function () {
         $('#cpf_cnpj').rules("add", { cpfBR: true,cnpjBR: false})
+        $('#rg_ie').rules("add", { required: true})
      })
     
     
@@ -355,7 +356,7 @@ pj.addEventListener('click', () => {
     labelCpf_Cnpj.innerHTML = 'CNPJ <span class="text-danger"> * </span>'
     labelNome_Fantasia.innerHTML = 'Nome Fantasia <span class="text-danger"> * </span>'
     labelSobrenome_Razao.innerHTML = 'Razão social <span class="text-danger"> * </span>'
-    labelRg_Ie.innerHTML = 'IE <span class="text-danger"> * </span>'
+    labelRg_Ie.innerHTML = 'IE'
     labelDtNascimento_Abertura.innerHTML = 'Data de Abertura <span class="text-danger"> * </span>'
     inputs.classList.remove('esconder')
     
@@ -388,6 +389,7 @@ pj.addEventListener('click', () => {
 
     $('#frmcliente').each(function () {
         $('#cpf_cnpj').rules("add", { cpfBR: false,cnpjBR: true})
+        $('#rg_ie').rules("add", { required: false})
      })
 })
 
