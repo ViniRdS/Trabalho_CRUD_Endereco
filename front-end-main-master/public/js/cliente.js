@@ -530,6 +530,8 @@ function mostrar(cliente) {
 
     document.querySelector("#idEndereco").value = id;
     
+    //$("#idEndereco").val(id);
+    //$("#idEnd").val(id);
     $("#exibirNome_fantasia").val(nome_fantasia);
     $("#exibirSobrenome_razao").val(sobrenome_razao);
     $("#exibirCpf_cnpj").val(cpf_cnpj);

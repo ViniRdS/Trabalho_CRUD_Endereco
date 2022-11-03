@@ -24,12 +24,12 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="./index.php">
+                        <a class="nav-link" aria-current="page" href="./index.php">
                             <i class="fa-solid fa-house"> </i> Início
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="listaclientes.php">
+                        <a class="nav-link active" href="listaclientes.php">
                             <i class="fa-solid fa-user"> </i> Clientes
                         </a>
                     </li>
@@ -268,8 +268,8 @@
                             <input type="text" class="form-control" id="ibge" name="ibge" required>
                         </div>
                         <div class="form-group">
-                            <label for="titulo" class="form-label">Titulo<span class="text-danger"> * </span></label>
-                            <input type="text" class="form-control" id="titulo" name="titulo" required>
+                            <label for="tituloInput" class="form-label">Titulo<span class="text-danger"> * </span></label>
+                            <input type="text" class="form-control" id="tituloInput" name="titulo" required>
                         </div>
                     </div>
                     <div class="modal-footer">

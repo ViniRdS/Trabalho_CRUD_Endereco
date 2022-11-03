@@ -162,7 +162,13 @@ async function inserir_endereco() {
         setTimeout(() => {
             //fecha o modal
             
-            $("#cadasdroEnderecoModal input").val('');
+            $("#logradouro").val('');
+            $("#cep").val('');
+            $("#bairro").val('');
+            $("#cidade").val('');
+            $("#uf").val('');
+            $("#ibge").val('');
+            $("#tituloInput").val('');
             $("#alertaEndereco").removeClass('alert alert-success');
             $('#alertaEndereco').addClass('alert alert-warning');
             $("#tituloEndereco").removeClass('d-none');
@@ -189,16 +195,17 @@ salvarEndereco.addEventListener('click', function () {
     setTimeout(() => {
         inserir_endereco();
         $("#cadasdroEnderecoModal").modal('hide');
+        $("#titulo").val('');
         $("#cep").val('');
         $("#logradouro").val('');
         $("#bairro").val('');
         $("#uf").val('');
         $("#cidade").val('');
         $("#ibge").val('');
-        $("#titulo").val('');
         $("#cadasdroEnderecoModal input").removeClass('is-valid')
         $("#cadasdroEnderecoModal input").removeClass('is-invalid')
         $("#exibirModal").modal('show')
+        
     }, 500);
 
     }
